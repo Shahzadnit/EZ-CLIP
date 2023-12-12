@@ -1,0 +1,422 @@
+--------------------------------------------------------------------------------
+                     working dir: /media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/Exp/clip_k400/ViT-B/16/kinetics400/base_to_novel_ucf_8_frame_with_motion_loss_3
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                               Config
+{   'data': {   'batch_size': 75,
+                'dataset': 'kinetics400',
+                'gpt_discription': '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/GPT_discription/UCF_101_gpt_Class_discription_new.csv',
+                'image_tmpl': 'img_{:05d}.jpg',
+                'index_bias': 1,
+                'input_size': 224,
+                'label_list': '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/Base_to_novel/ucf/ucf_base_train_class_list.csv',
+                'modality': 'RGB',
+                'novel_gpt_discription': '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/GPT_discription/UCF_101_gpt_Class_discription_new.csv',
+                'novel_label_list': '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/Base_to_novel/ucf/ucf_novel_val_class_list.csv',
+                'novel_val_list': '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/Base_to_novel/ucf/my_ucf_novel_val.txt',
+                'num_segments': 8,
+                'randaug': {'M': 0, 'N': 0},
+                'random_shift': False,
+                'seg_length': 1,
+                'train_list': '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/Base_to_novel/ucf/my_ucf_base_train.txt',
+                'use_chat_gpt': True,
+                'val_list': '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/Base_to_novel/ucf/my_ucf_base_val.txt',
+                'workers': 16},
+    'logging': {'eval_freq': 1, 'print_freq': 10},
+    'network': {   'arch': 'ViT-B/16',
+                   'describe': None,
+                   'drop_out': 0.1,
+                   'emb_dropout': 0.0,
+                   'init': True,
+                   'joint': False,
+                   'sim_header': 'Transf',
+                   'tsm': False,
+                   'type': 'clip_k400'},
+    'pretrain': None,
+    'prompt': {   'DEEP': True,
+                  'DROPOUT': 0.1,
+                  'INITIATION': 'random',
+                  'use': True},
+    'resume': None,
+    'seed': 1024,
+    'solver': {   'clip_gradient': 20,
+                  'epoch_offset': 0,
+                  'epochs': 50,
+                  'evaluate': False,
+                  'f_ratio': 10,
+                  'loss_type': 'nll',
+                  'lr': 0.0001,
+                  'lr_decay_factor': 0.1,
+                  'lr_decay_step': 15,
+                  'lr_warmup_step': 1,
+                  'momentum': 0.9,
+                  'optim': 'adamw',
+                  'ratio': 1,
+                  'start_epoch': 0,
+                  'type': 'cosine',
+                  'weight_decay': 0.2}}
+--------------------------------------------------------------------------------
+dropout used:[0.0, 0.00909090880304575, 0.0181818176060915, 0.027272727340459824, 0.036363635212183, 0.045454543083906174, 0.054545458406209946, 0.06363636255264282, 0.0727272778749466, 0.08181818574666977, 0.09090909361839294, 0.10000000149011612]
+dropout used:[0.0, 0.00909090880304575, 0.0181818176060915, 0.027272727340459824, 0.036363635212183, 0.045454543083906174, 0.054545458406209946, 0.06363636255264282, 0.0727272778749466, 0.08181818574666977, 0.09090909361839294, 0.10000000149011612]
+loading clip pretrained model!
+train transforms: [Compose(
+    <datasets.transforms_ss.GroupMultiScaleCrop object at 0x7f4b54266a30>
+    <datasets.transforms_ss.GroupRandomHorizontalFlip object at 0x7f4b54266e80>
+    <datasets.transforms_ss.GroupRandomColorJitter object at 0x7f4b54266fd0>
+    <datasets.transforms_ss.GroupRandomGrayscale object at 0x7f4b54266f70>
+    <datasets.transforms_ss.GroupGaussianBlur object at 0x7f4b54266d30>
+    <datasets.transforms_ss.GroupSolarization object at 0x7f4b54266e50>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7f4b54266a90>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7f4b54266d00>
+    <datasets.transforms_ss.GroupNormalize object at 0x7f4b54266be0>
+)]
+val transforms: [Compose(
+    <datasets.transforms_ss.GroupScale object at 0x7f4b54266c70>
+    <datasets.transforms_ss.GroupCenterCrop object at 0x7f4b54266c40>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7f4b542668e0>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7f4b54266880>
+    <datasets.transforms_ss.GroupNormalize object at 0x7f4b54266820>
+)]
+layer=6
+fusion_model Trainable Parameters: 0.000M
+CLIP_model Trainable Parameters: 5.205M
+=========using KL Loss=and has temperature and * bz==========
+=========using KL Loss=and has temperature and * bz==========
+0.0001
+0.0001
+0.001
+AdamW
+visual.transformer.T_prompt_embeddings: True
+visual.transformer.resblocks.0.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.0.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.0.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.0.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.1.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.1.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.1.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.1.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.2.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.2.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.2.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.2.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.3.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.3.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.3.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.3.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.4.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.4.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.4.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.4.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.5.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.5.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.5.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.5.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.6.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.6.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.6.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.6.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.7.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.7.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.7.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.7.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.8.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.8.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.8.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.8.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.9.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.9.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.9.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.9.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.10.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.10.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.10.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.10.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.11.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.11.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.11.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.11.Adapter.D_fc2.bias: True
+transformer.resblocks.0.Adapter.D_fc1.weight: True
+transformer.resblocks.0.Adapter.D_fc1.bias: True
+transformer.resblocks.0.Adapter.D_fc2.weight: True
+transformer.resblocks.0.Adapter.D_fc2.bias: True
+transformer.resblocks.1.Adapter.D_fc1.weight: True
+transformer.resblocks.1.Adapter.D_fc1.bias: True
+transformer.resblocks.1.Adapter.D_fc2.weight: True
+transformer.resblocks.1.Adapter.D_fc2.bias: True
+transformer.resblocks.2.Adapter.D_fc1.weight: True
+transformer.resblocks.2.Adapter.D_fc1.bias: True
+transformer.resblocks.2.Adapter.D_fc2.weight: True
+transformer.resblocks.2.Adapter.D_fc2.bias: True
+transformer.resblocks.3.Adapter.D_fc1.weight: True
+transformer.resblocks.3.Adapter.D_fc1.bias: True
+transformer.resblocks.3.Adapter.D_fc2.weight: True
+transformer.resblocks.3.Adapter.D_fc2.bias: True
+transformer.resblocks.4.Adapter.D_fc1.weight: True
+transformer.resblocks.4.Adapter.D_fc1.bias: True
+transformer.resblocks.4.Adapter.D_fc2.weight: True
+transformer.resblocks.4.Adapter.D_fc2.bias: True
+transformer.resblocks.5.Adapter.D_fc1.weight: True
+transformer.resblocks.5.Adapter.D_fc1.bias: True
+transformer.resblocks.5.Adapter.D_fc2.weight: True
+transformer.resblocks.5.Adapter.D_fc2.bias: True
+transformer.resblocks.6.Adapter.D_fc1.weight: True
+transformer.resblocks.6.Adapter.D_fc1.bias: True
+transformer.resblocks.6.Adapter.D_fc2.weight: True
+transformer.resblocks.6.Adapter.D_fc2.bias: True
+transformer.resblocks.7.Adapter.D_fc1.weight: True
+transformer.resblocks.7.Adapter.D_fc1.bias: True
+transformer.resblocks.7.Adapter.D_fc2.weight: True
+transformer.resblocks.7.Adapter.D_fc2.bias: True
+transformer.resblocks.8.Adapter.D_fc1.weight: True
+transformer.resblocks.8.Adapter.D_fc1.bias: True
+transformer.resblocks.8.Adapter.D_fc2.weight: True
+transformer.resblocks.8.Adapter.D_fc2.bias: True
+transformer.resblocks.9.Adapter.D_fc1.weight: True
+transformer.resblocks.9.Adapter.D_fc1.bias: True
+transformer.resblocks.9.Adapter.D_fc2.weight: True
+transformer.resblocks.9.Adapter.D_fc2.bias: True
+transformer.resblocks.10.Adapter.D_fc1.weight: True
+transformer.resblocks.10.Adapter.D_fc1.bias: True
+transformer.resblocks.10.Adapter.D_fc2.weight: True
+transformer.resblocks.10.Adapter.D_fc2.bias: True
+transformer.resblocks.11.Adapter.D_fc1.weight: True
+transformer.resblocks.11.Adapter.D_fc1.bias: True
+transformer.resblocks.11.Adapter.D_fc2.weight: True
+transformer.resblocks.11.Adapter.D_fc2.bias: True
+------------------------------------------------------------------------
+Epoch 0 start ..
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/nn/_reduction.py:42: UserWarning: size_average and reduce args will be deprecated, please use reduction='mean' instead.
+  warnings.warn(warning.format(ret))
+train_base_to_novel.py:105: YAMLLoadWarning: calling yaml.load() without Loader=... is deprecated, as the default Loader is unsafe. Please read https://msg.pyyaml.org/load for full details.
+  config = yaml.load(f)
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:139: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn("Detected call of `lr_scheduler.step()` before `optimizer.step()`. "
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:152: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+  0%|          | 0/22 [00:00<?, ?it/s]Epoch:0  iteration:0/71, total loss:4.175781, image loss:3.941406, text loss:2.539062, motion loss:0.937012, lr:0.000000 
+Epoch:0  iteration:10/71, total loss:2.738281, image loss:1.860352, text loss:1.810547, motion loss:0.902832, lr:0.000013 
+Epoch:0  iteration:20/71, total loss:3.750000, image loss:2.970703, text loss:2.730469, motion loss:0.898438, lr:0.000027 
+Epoch:0  iteration:30/71, total loss:4.734375, image loss:4.542969, text loss:2.986328, motion loss:0.966797, lr:0.000041 
+Epoch:0  iteration:40/71, total loss:2.449219, image loss:1.563477, text loss:1.471680, motion loss:0.932617, lr:0.000055 
+Epoch:0  iteration:50/71, total loss:1.906250, image loss:0.899414, text loss:1.077148, motion loss:0.917480, lr:0.000069 
+Epoch:0  iteration:60/71, total loss:1.732422, image loss:0.730469, text loss:0.916016, motion loss:0.909180, lr:0.000083 
+Epoch:0  iteration:70/71, total loss:1.808594, image loss:0.735352, text loss:1.045898, motion loss:0.917480, lr:0.000097 
+novel accuracy
+  5%|▍         | 1/22 [03:55<1:22:24, 235.46s/it]  9%|▉         | 2/22 [03:56<55:00, 165.04s/it]   14%|█▎        | 3/22 [03:56<36:39, 115.75s/it] 18%|█▊        | 4/22 [03:57<24:22, 81.24s/it]  23%|██▎       | 5/22 [03:58<16:10, 57.09s/it] 27%|██▋       | 6/22 [03:59<10:42, 40.18s/it] 32%|███▏      | 7/22 [03:59<07:05, 28.35s/it] 36%|███▋      | 8/22 [04:00<04:40, 20.06s/it] 41%|████      | 9/22 [04:01<03:05, 14.27s/it] 45%|████▌     | 10/22 [04:02<02:02, 10.20s/it] 50%|█████     | 11/22 [04:02<01:20,  7.36s/it] 55%|█████▍    | 12/22 [04:03<00:53,  5.37s/it] 59%|█████▉    | 13/22 [04:04<00:35,  3.99s/it] 64%|██████▎   | 14/22 [04:05<00:24,  3.01s/it] 68%|██████▊   | 15/22 [04:05<00:16,  2.33s/it] 73%|███████▎  | 16/22 [04:06<00:11,  1.86s/it] 77%|███████▋  | 17/22 [04:11<00:13,  2.78s/it] 82%|████████▏ | 18/22 [04:12<00:08,  2.17s/it] 86%|████████▋ | 19/22 [04:12<00:05,  1.75s/it] 91%|█████████ | 20/22 [04:13<00:02,  1.45s/it] 95%|█████████▌| 21/22 [04:14<00:01,  1.24s/it]100%|██████████| 22/22 [04:15<00:00,  1.09s/it]100%|██████████| 22/22 [04:15<00:00, 11.61s/it]
+  0%|          | 0/27 [00:00<?, ?it/s]Epoch: [0/50]: Top1: 75.45454545454545, Top5: 95.75757575757575
+Base val accuracy
+  4%|▎         | 1/27 [04:28<1:56:10, 268.08s/it]  7%|▋         | 2/27 [04:28<1:18:17, 187.89s/it] 11%|█         | 3/27 [04:29<52:41, 131.74s/it]   15%|█▍        | 4/27 [04:30<35:26, 92.44s/it]  19%|█▊        | 5/27 [04:31<23:48, 64.93s/it] 22%|██▏       | 6/27 [04:31<15:59, 45.67s/it] 26%|██▌       | 7/27 [04:32<10:43, 32.19s/it] 30%|██▉       | 8/27 [04:33<07:12, 22.75s/it] 33%|███▎      | 9/27 [04:34<04:50, 16.15s/it] 37%|███▋      | 10/27 [04:34<03:15, 11.53s/it] 41%|████      | 11/27 [04:35<02:12,  8.29s/it] 44%|████▍     | 12/27 [04:36<01:30,  6.03s/it] 48%|████▊     | 13/27 [04:36<01:02,  4.44s/it] 52%|█████▏    | 14/27 [04:37<00:43,  3.33s/it] 56%|█████▌    | 15/27 [04:38<00:30,  2.55s/it] 59%|█████▉    | 16/27 [04:39<00:22,  2.00s/it] 63%|██████▎   | 17/27 [04:58<01:11,  7.11s/it] 67%|██████▋   | 18/27 [04:58<00:46,  5.22s/it] 70%|███████   | 19/27 [04:59<00:31,  3.88s/it] 74%|███████▍  | 20/27 [05:00<00:20,  2.94s/it] 78%|███████▊  | 21/27 [05:01<00:13,  2.28s/it] 81%|████████▏ | 22/27 [05:01<00:09,  1.82s/it] 85%|████████▌ | 23/27 [05:02<00:05,  1.50s/it] 89%|████████▉ | 24/27 [05:03<00:03,  1.27s/it] 93%|█████████▎| 25/27 [05:04<00:02,  1.11s/it] 96%|█████████▋| 26/27 [05:04<00:01,  1.00s/it]100%|██████████| 27/27 [05:05<00:00,  1.08it/s]100%|██████████| 27/27 [05:06<00:00, 11.33s/it]Epoch: [0/50]: Top1: 88.69135802469135, Top5: 99.20987654320987
+Base Testing: 88.69135802469135/88.69135802469135
+Novel Testing: 75.45454545454545/75.45454545454545
+Saving:
+Saving best weight based on Base accuracy at epoch 0
+Saving best weight based on Novel accuracy at epoch 0
+Epoch 0 end ..
+Time taken by epoch 0: 0:24:36
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 1 start ..
+
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:152: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+  0%|          | 0/22 [00:00<?, ?it/s]Epoch:1  iteration:0/71, total loss:3.042969, image loss:2.898438, text loss:1.338867, motion loss:0.923340, lr:0.000100 
+Epoch:1  iteration:10/71, total loss:1.778320, image loss:0.756348, text loss:0.958984, motion loss:0.920898, lr:0.000100 
+Epoch:1  iteration:20/71, total loss:2.033203, image loss:1.035156, text loss:1.135742, motion loss:0.947266, lr:0.000100 
+Epoch:1  iteration:30/71, total loss:1.617188, image loss:0.638672, text loss:0.764648, motion loss:0.915039, lr:0.000100 
+Epoch:1  iteration:40/71, total loss:1.451172, image loss:0.476318, text loss:0.593262, motion loss:0.916016, lr:0.000100 
+Epoch:1  iteration:50/71, total loss:1.517578, image loss:0.424561, text loss:0.762695, motion loss:0.923340, lr:0.000100 
+Epoch:1  iteration:60/71, total loss:1.597656, image loss:0.534668, text loss:0.823242, motion loss:0.918457, lr:0.000100 
+Epoch:1  iteration:70/71, total loss:1.306641, image loss:0.354248, text loss:0.407471, motion loss:0.925781, lr:0.000100 
+novel accuracy
+  5%|▍         | 1/22 [01:26<30:08, 86.13s/it]  9%|▉         | 2/22 [01:26<20:10, 60.52s/it] 14%|█▎        | 3/22 [01:27<13:29, 42.58s/it] 18%|█▊        | 4/22 [01:28<09:00, 30.03s/it] 23%|██▎       | 5/22 [01:29<06:01, 21.24s/it] 27%|██▋       | 6/22 [01:29<04:01, 15.09s/it] 32%|███▏      | 7/22 [01:30<02:41, 10.79s/it] 36%|███▋      | 8/22 [01:31<01:48,  7.78s/it] 41%|████      | 9/22 [01:32<01:13,  5.67s/it] 45%|████▌     | 10/22 [01:32<00:50,  4.20s/it] 50%|█████     | 11/22 [01:33<00:34,  3.16s/it] 55%|█████▍    | 12/22 [01:34<00:24,  2.44s/it] 59%|█████▉    | 13/22 [01:35<00:17,  1.93s/it] 64%|██████▎   | 14/22 [01:35<00:12,  1.58s/it] 68%|██████▊   | 15/22 [01:36<00:09,  1.33s/it] 73%|███████▎  | 16/22 [01:37<00:06,  1.15s/it] 77%|███████▋  | 17/22 [01:44<00:15,  3.07s/it] 82%|████████▏ | 18/22 [01:45<00:09,  2.37s/it] 86%|████████▋ | 19/22 [01:46<00:05,  1.88s/it] 91%|█████████ | 20/22 [01:47<00:03,  1.55s/it] 95%|█████████▌| 21/22 [01:47<00:01,  1.31s/it]100%|██████████| 22/22 [01:48<00:00,  1.14s/it]100%|██████████| 22/22 [01:48<00:00,  4.95s/it]
+  0%|          | 0/27 [00:00<?, ?it/s]Epoch: [1/50]: Top1: 74.90909090909092, Top5: 95.27272727272728
+Base val accuracy
+  4%|▎         | 1/27 [01:12<31:19, 72.27s/it]  7%|▋         | 2/27 [01:15<21:25, 51.44s/it] 11%|█         | 3/27 [01:15<14:29, 36.23s/it] 15%|█▍        | 4/27 [01:34<11:55, 31.10s/it] 19%|█▊        | 5/27 [01:35<08:03, 22.00s/it] 22%|██▏       | 6/27 [01:36<05:28, 15.62s/it] 26%|██▌       | 7/27 [01:37<03:43, 11.15s/it] 30%|██▉       | 8/27 [01:37<02:32,  8.03s/it] 33%|███▎      | 9/27 [01:38<01:45,  5.85s/it] 37%|███▋      | 10/27 [01:39<01:13,  4.32s/it] 41%|████      | 11/27 [01:40<00:51,  3.25s/it] 44%|████▍     | 12/27 [01:40<00:37,  2.50s/it] 48%|████▊     | 13/27 [01:41<00:27,  1.97s/it] 52%|█████▏    | 14/27 [01:42<00:20,  1.61s/it] 56%|█████▌    | 15/27 [01:43<00:16,  1.35s/it] 59%|█████▉    | 16/27 [01:43<00:12,  1.17s/it] 63%|██████▎   | 17/27 [01:44<00:10,  1.04s/it] 67%|██████▋   | 18/27 [01:45<00:08,  1.05it/s] 70%|███████   | 19/27 [01:59<00:38,  4.86s/it] 74%|███████▍  | 20/27 [02:02<00:29,  4.21s/it] 78%|███████▊  | 21/27 [02:02<00:19,  3.17s/it] 81%|████████▏ | 22/27 [02:03<00:12,  2.44s/it] 85%|████████▌ | 23/27 [02:04<00:07,  1.93s/it] 89%|████████▉ | 24/27 [02:05<00:04,  1.58s/it] 93%|█████████▎| 25/27 [02:05<00:02,  1.33s/it] 96%|█████████▋| 26/27 [02:06<00:01,  1.15s/it]100%|██████████| 27/27 [02:07<00:00,  1.03s/it]100%|██████████| 27/27 [02:07<00:00,  4.73s/it]Epoch: [1/50]: Top1: 92.79012345679011, Top5: 99.30864197530865
+Base Testing: 92.79012345679011/92.79012345679011
+Novel Testing: 74.90909090909092/75.45454545454545
+Saving:
+Saving best weight based on Base accuracy at epoch 1
+Epoch 1 end ..
+Time taken by epoch 1: 0:10:03
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 2 start ..
+
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:152: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+  0%|          | 0/22 [00:00<?, ?it/s]Epoch:2  iteration:0/71, total loss:1.412109, image loss:0.414795, text loss:0.576172, motion loss:0.916504, lr:0.000100 
+Epoch:2  iteration:10/71, total loss:1.333984, image loss:0.382568, text loss:0.450928, motion loss:0.917480, lr:0.000100 
+Epoch:2  iteration:20/71, total loss:1.318359, image loss:0.281006, text loss:0.517090, motion loss:0.919434, lr:0.000100 
+Epoch:2  iteration:30/71, total loss:1.798828, image loss:0.868164, text loss:0.841797, motion loss:0.943848, lr:0.000100 
+Epoch:2  iteration:40/71, total loss:1.512695, image loss:0.499756, text loss:0.671875, motion loss:0.926758, lr:0.000100 
+Epoch:2  iteration:50/71, total loss:1.261719, image loss:0.308105, text loss:0.382568, motion loss:0.916016, lr:0.000100 
+Epoch:2  iteration:60/71, total loss:1.096680, image loss:0.106262, text loss:0.251465, motion loss:0.917480, lr:0.000100 
+Epoch:2  iteration:70/71, total loss:1.371094, image loss:0.404541, text loss:0.456055, motion loss:0.941406, lr:0.000100 
+novel accuracy
+  5%|▍         | 1/22 [01:31<31:52, 91.08s/it]  9%|▉         | 2/22 [01:31<21:19, 63.98s/it] 14%|█▎        | 3/22 [01:32<14:15, 45.02s/it] 18%|█▊        | 4/22 [01:33<09:31, 31.74s/it] 23%|██▎       | 5/22 [01:34<06:21, 22.45s/it] 27%|██▋       | 6/22 [01:34<04:15, 15.94s/it] 32%|███▏      | 7/22 [01:35<02:50, 11.39s/it] 36%|███▋      | 8/22 [01:36<01:54,  8.20s/it] 41%|████      | 9/22 [01:37<01:17,  5.96s/it] 45%|████▌     | 10/22 [01:37<00:52,  4.40s/it] 50%|█████     | 11/22 [01:38<00:36,  3.31s/it] 55%|█████▍    | 12/22 [01:39<00:25,  2.54s/it] 59%|█████▉    | 13/22 [01:40<00:18,  2.01s/it] 64%|██████▎   | 14/22 [01:40<00:13,  1.63s/it] 68%|██████▊   | 15/22 [01:41<00:09,  1.37s/it] 73%|███████▎  | 16/22 [01:42<00:07,  1.19s/it] 77%|███████▋  | 17/22 [01:47<00:11,  2.31s/it] 82%|████████▏ | 18/22 [01:48<00:07,  1.84s/it] 86%|████████▋ | 19/22 [01:48<00:04,  1.52s/it] 91%|█████████ | 20/22 [01:49<00:02,  1.29s/it] 95%|█████████▌| 21/22 [01:50<00:01,  1.13s/it]100%|██████████| 22/22 [01:51<00:00,  1.02s/it]100%|██████████| 22/22 [01:51<00:00,  5.06s/it]
+  0%|          | 0/27 [00:00<?, ?it/s]Epoch: [2/50]: Top1: 77.51515151515152, Top5: 95.15151515151516
+Base val accuracy
+  4%|▎         | 1/27 [01:52<48:49, 112.66s/it]  7%|▋         | 2/27 [01:53<32:57, 79.09s/it]  11%|█         | 3/27 [01:54<22:14, 55.59s/it] 15%|█▍        | 4/27 [01:54<15:00, 39.13s/it] 19%|█▊        | 5/27 [01:55<10:07, 27.62s/it] 22%|██▏       | 6/27 [01:56<06:50, 19.56s/it] 26%|██▌       | 7/27 [01:57<04:38, 13.91s/it] 30%|██▉       | 8/27 [01:57<03:09,  9.97s/it] 33%|███▎      | 9/27 [01:58<02:09,  7.20s/it] 37%|███▋      | 10/27 [01:59<01:29,  5.26s/it] 41%|████      | 11/27 [02:00<01:02,  3.91s/it] 44%|████▍     | 12/27 [02:00<00:44,  2.96s/it] 48%|████▊     | 13/27 [02:01<00:32,  2.30s/it] 52%|█████▏    | 14/27 [02:02<00:23,  1.83s/it] 56%|█████▌    | 15/27 [02:03<00:18,  1.50s/it] 59%|█████▉    | 16/27 [02:03<00:14,  1.28s/it] 63%|██████▎   | 17/27 [02:06<00:16,  1.68s/it] 67%|██████▋   | 18/27 [02:07<00:12,  1.40s/it] 70%|███████   | 19/27 [02:07<00:09,  1.20s/it] 74%|███████▍  | 20/27 [02:08<00:07,  1.07s/it] 78%|███████▊  | 21/27 [02:09<00:05,  1.03it/s] 81%|████████▏ | 22/27 [02:10<00:04,  1.11it/s] 85%|████████▌ | 23/27 [02:10<00:03,  1.17it/s] 89%|████████▉ | 24/27 [02:11<00:02,  1.22it/s] 93%|█████████▎| 25/27 [02:12<00:01,  1.25it/s] 96%|█████████▋| 26/27 [02:13<00:00,  1.28it/s]100%|██████████| 27/27 [02:13<00:00,  1.30it/s]100%|██████████| 27/27 [02:14<00:00,  4.97s/it]Epoch: [2/50]: Top1: 95.06172839506173, Top5: 99.55555555555556
+Base Testing: 95.06172839506173/95.06172839506173
+Novel Testing: 77.51515151515152/77.51515151515152
+Saving:
+Saving best weight based on Base accuracy at epoch 2
+Saving best weight based on Novel accuracy at epoch 2
+Epoch 2 end ..
+Time taken by epoch 2: 0:08:02
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 3 start ..
+
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:152: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+  0%|          | 0/22 [00:00<?, ?it/s]Epoch:3  iteration:0/71, total loss:1.155273, image loss:0.156372, text loss:0.326904, motion loss:0.913574, lr:0.000100 
+Epoch:3  iteration:10/71, total loss:1.191406, image loss:0.234863, text loss:0.318604, motion loss:0.914062, lr:0.000100 
+Epoch:3  iteration:20/71, total loss:1.277344, image loss:0.283691, text loss:0.439453, motion loss:0.916016, lr:0.000099 
+Epoch:3  iteration:30/71, total loss:1.292969, image loss:0.290039, text loss:0.446777, motion loss:0.924316, lr:0.000099 
+Epoch:3  iteration:40/71, total loss:1.222656, image loss:0.220215, text loss:0.382324, motion loss:0.920898, lr:0.000099 
+Epoch:3  iteration:50/71, total loss:1.163086, image loss:0.213989, text loss:0.283447, motion loss:0.914062, lr:0.000099 
+Epoch:3  iteration:60/71, total loss:1.114258, image loss:0.138062, text loss:0.258301, motion loss:0.916016, lr:0.000099 
+Epoch:3  iteration:70/71, total loss:1.148438, image loss:0.174194, text loss:0.295898, motion loss:0.913574, lr:0.000099 
+novel accuracy
+  5%|▍         | 1/22 [01:23<29:08, 83.24s/it]  9%|▉         | 2/22 [01:24<19:29, 58.50s/it] 14%|█▎        | 3/22 [01:24<13:02, 41.18s/it] 18%|█▊        | 4/22 [01:25<08:42, 29.05s/it] 23%|██▎       | 5/22 [01:26<05:49, 20.56s/it] 27%|██▋       | 6/22 [01:27<03:53, 14.62s/it] 32%|███▏      | 7/22 [01:27<02:36, 10.46s/it] 36%|███▋      | 8/22 [01:28<01:45,  7.55s/it] 41%|████      | 9/22 [01:29<01:11,  5.51s/it] 45%|████▌     | 10/22 [01:30<00:48,  4.08s/it] 50%|█████     | 11/22 [01:30<00:33,  3.08s/it] 55%|█████▍    | 12/22 [01:31<00:23,  2.38s/it] 59%|█████▉    | 13/22 [01:32<00:17,  1.89s/it] 64%|██████▎   | 14/22 [01:33<00:12,  1.55s/it] 68%|██████▊   | 15/22 [01:33<00:09,  1.31s/it] 73%|███████▎  | 16/22 [01:34<00:06,  1.14s/it] 77%|███████▋  | 17/22 [01:35<00:05,  1.03s/it] 82%|████████▏ | 18/22 [01:36<00:03,  1.06it/s] 86%|████████▋ | 19/22 [01:36<00:02,  1.13it/s] 91%|█████████ | 20/22 [01:37<00:01,  1.19it/s] 95%|█████████▌| 21/22 [01:38<00:00,  1.23it/s]100%|██████████| 22/22 [01:39<00:00,  1.26it/s]100%|██████████| 22/22 [01:39<00:00,  4.51s/it]
+  0%|          | 0/27 [00:00<?, ?it/s]Epoch: [3/50]: Top1: 72.66666666666667, Top5: 93.15151515151516
+Base val accuracy
+  4%|▎         | 1/27 [00:07<03:18,  7.65s/it]  7%|▋         | 2/27 [00:08<02:20,  5.61s/it] 11%|█         | 3/27 [00:09<01:40,  4.19s/it] 15%|█▍        | 4/27 [00:10<01:13,  3.19s/it] 19%|█▊        | 5/27 [00:11<00:54,  2.48s/it] 22%|██▏       | 6/27 [00:11<00:41,  1.97s/it] 26%|██▌       | 7/27 [00:12<00:32,  1.61s/it] 30%|██▉       | 8/27 [00:13<00:25,  1.35s/it] 33%|███▎      | 9/27 [00:14<00:21,  1.17s/it] 37%|███▋      | 10/27 [00:14<00:17,  1.04s/it] 41%|████      | 11/27 [00:15<00:15,  1.05it/s] 44%|████▍     | 12/27 [00:16<00:13,  1.12it/s] 48%|████▊     | 13/27 [00:17<00:11,  1.18it/s] 52%|█████▏    | 14/27 [00:17<00:10,  1.22it/s] 56%|█████▌    | 15/27 [00:18<00:09,  1.25it/s] 59%|█████▉    | 16/27 [00:19<00:08,  1.28it/s] 63%|██████▎   | 17/27 [00:20<00:07,  1.29it/s] 67%|██████▋   | 18/27 [00:20<00:06,  1.30it/s] 70%|███████   | 19/27 [00:21<00:06,  1.31it/s] 74%|███████▍  | 20/27 [00:22<00:05,  1.32it/s] 78%|███████▊  | 21/27 [00:23<00:04,  1.32it/s] 81%|████████▏ | 22/27 [00:23<00:03,  1.32it/s] 85%|████████▌ | 23/27 [00:24<00:03,  1.32it/s] 89%|████████▉ | 24/27 [00:25<00:02,  1.32it/s] 93%|█████████▎| 25/27 [00:26<00:01,  1.32it/s] 96%|█████████▋| 26/27 [00:26<00:00,  1.33it/s]100%|██████████| 27/27 [00:27<00:00,  1.33it/s]100%|██████████| 27/27 [00:27<00:00,  1.03s/it]Epoch: [3/50]: Top1: 95.01234567901234, Top5: 99.70370370370371
+Base Testing: 95.01234567901234/95.06172839506173
+Novel Testing: 72.66666666666667/77.51515151515152
+Saving:
+Epoch 3 end ..
+Time taken by epoch 3: 0:04:55
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 4 start ..
+
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:152: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+  0%|          | 0/22 [00:00<?, ?it/s]Epoch:4  iteration:0/71, total loss:1.223633, image loss:0.219482, text loss:0.412109, motion loss:0.907715, lr:0.000099 
+Epoch:4  iteration:10/71, total loss:1.138672, image loss:0.174805, text loss:0.274902, motion loss:0.914062, lr:0.000099 
+Epoch:4  iteration:20/71, total loss:1.273438, image loss:0.324219, text loss:0.391357, motion loss:0.915039, lr:0.000099 
+Epoch:4  iteration:30/71, total loss:1.207031, image loss:0.224121, text loss:0.367676, motion loss:0.911621, lr:0.000099 
+Epoch:4  iteration:40/71, total loss:1.153320, image loss:0.156616, text loss:0.333252, motion loss:0.908691, lr:0.000099 
+Epoch:4  iteration:50/71, total loss:1.060547, image loss:0.092102, text loss:0.206421, motion loss:0.911133, lr:0.000099 
+Epoch:4  iteration:60/71, total loss:1.185547, image loss:0.222290, text loss:0.338379, motion loss:0.904785, lr:0.000098 
+Epoch:4  iteration:70/71, total loss:1.112305, image loss:0.140137, text loss:0.269531, motion loss:0.907715, lr:0.000098 
+novel accuracy
+  5%|▍         | 1/22 [00:08<02:59,  8.55s/it]  9%|▉         | 2/22 [00:09<02:04,  6.22s/it] 14%|█▎        | 3/22 [00:10<01:26,  4.58s/it] 18%|█▊        | 4/22 [00:10<01:01,  3.43s/it] 23%|██▎       | 5/22 [00:11<00:44,  2.63s/it] 27%|██▋       | 6/22 [00:12<00:33,  2.07s/it] 32%|███▏      | 7/22 [00:13<00:25,  1.68s/it] 36%|███▋      | 8/22 [00:13<00:19,  1.41s/it] 41%|████      | 9/22 [00:14<00:15,  1.21s/it] 45%|████▌     | 10/22 [00:15<00:12,  1.08s/it] 50%|█████     | 11/22 [00:16<00:10,  1.02it/s] 55%|█████▍    | 12/22 [00:16<00:09,  1.09it/s] 59%|█████▉    | 13/22 [00:17<00:07,  1.14it/s] 64%|██████▎   | 14/22 [00:18<00:06,  1.19it/s] 68%|██████▊   | 15/22 [00:19<00:05,  1.22it/s] 73%|███████▎  | 16/22 [00:20<00:04,  1.25it/s] 77%|███████▋  | 17/22 [00:24<00:10,  2.05s/it] 82%|████████▏ | 18/22 [00:25<00:06,  1.66s/it] 86%|████████▋ | 19/22 [00:26<00:04,  1.39s/it] 91%|█████████ | 20/22 [00:27<00:02,  1.20s/it] 95%|█████████▌| 21/22 [00:28<00:01,  1.07s/it]100%|██████████| 22/22 [00:28<00:00,  1.02it/s]100%|██████████| 22/22 [00:29<00:00,  1.32s/it]
+  0%|          | 0/27 [00:00<?, ?it/s]Epoch: [4/50]: Top1: 74.7878787878788, Top5: 93.39393939393939
+Base val accuracy
+  4%|▎         | 1/27 [01:07<29:24, 67.88s/it]  7%|▋         | 2/27 [01:08<19:53, 47.74s/it] 11%|█         | 3/27 [01:09<13:27, 33.64s/it] 15%|█▍        | 4/27 [01:10<09:06, 23.78s/it] 19%|█▊        | 5/27 [01:10<06:11, 16.88s/it] 22%|██▏       | 6/27 [01:11<04:12, 12.04s/it] 26%|██▌       | 7/27 [01:12<02:53,  8.65s/it] 30%|██▉       | 8/27 [01:13<01:59,  6.28s/it] 33%|███▎      | 9/27 [01:13<01:23,  4.63s/it] 37%|███▋      | 10/27 [01:14<00:58,  3.47s/it] 41%|████      | 11/27 [01:15<00:42,  2.66s/it] 44%|████▍     | 12/27 [01:16<00:31,  2.09s/it] 48%|████▊     | 13/27 [01:16<00:23,  1.69s/it] 52%|█████▏    | 14/27 [01:17<00:18,  1.41s/it] 56%|█████▌    | 15/27 [01:18<00:14,  1.21s/it] 59%|█████▉    | 16/27 [01:19<00:11,  1.08s/it] 63%|██████▎   | 17/27 [01:27<00:31,  3.15s/it] 67%|██████▋   | 18/27 [01:28<00:21,  2.43s/it] 70%|███████   | 19/27 [01:28<00:15,  1.93s/it] 74%|███████▍  | 20/27 [01:29<00:11,  1.58s/it] 78%|███████▊  | 21/27 [01:30<00:07,  1.33s/it] 81%|████████▏ | 22/27 [01:31<00:05,  1.16s/it] 85%|████████▌ | 23/27 [01:31<00:04,  1.04s/it] 89%|████████▉ | 24/27 [01:32<00:02,  1.05it/s] 93%|█████████▎| 25/27 [01:33<00:01,  1.12it/s] 96%|█████████▋| 26/27 [01:34<00:00,  1.18it/s]100%|██████████| 27/27 [01:34<00:00,  1.22it/s]100%|██████████| 27/27 [01:35<00:00,  3.52s/it]Epoch: [4/50]: Top1: 95.01234567901234, Top5: 99.75308641975309
+Base Testing: 95.01234567901234/95.06172839506173
+Novel Testing: 74.7878787878788/77.51515151515152
+Saving:
+Epoch 4 end ..
+Time taken by epoch 4: 0:05:03
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 5 start ..
+
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:152: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+  0%|          | 0/22 [00:00<?, ?it/s]Epoch:5  iteration:0/71, total loss:1.085938, image loss:0.118958, text loss:0.244873, motion loss:0.903809, lr:0.000098 
+Epoch:5  iteration:10/71, total loss:1.170898, image loss:0.198242, text loss:0.325684, motion loss:0.909180, lr:0.000098 
+Epoch:5  iteration:20/71, total loss:1.091797, image loss:0.126831, text loss:0.250977, motion loss:0.902832, lr:0.000098 
+Epoch:5  iteration:30/71, total loss:1.085938, image loss:0.105835, text loss:0.255859, motion loss:0.904785, lr:0.000098 
+Epoch:5  iteration:40/71, total loss:1.085938, image loss:0.173096, text loss:0.192749, motion loss:0.902832, lr:0.000098 
+Epoch:5  iteration:50/71, total loss:1.328125, image loss:0.360107, text loss:0.427734, motion loss:0.933594, lr:0.000098 
+Epoch:5  iteration:60/71, total loss:1.075195, image loss:0.085632, text loss:0.259277, motion loss:0.902832, lr:0.000098 
+Epoch:5  iteration:70/71, total loss:1.141602, image loss:0.127930, text loss:0.340576, motion loss:0.907715, lr:0.000097 
+novel accuracy
+  5%|▍         | 1/22 [00:17<06:06, 17.47s/it]  9%|▉         | 2/22 [00:18<04:09, 12.46s/it] 14%|█▎        | 3/22 [00:19<02:50,  8.96s/it] 18%|█▊        | 4/22 [00:19<01:57,  6.50s/it] 23%|██▎       | 5/22 [00:20<01:21,  4.78s/it] 27%|██▋       | 6/22 [00:21<00:57,  3.57s/it] 32%|███▏      | 7/22 [00:22<00:40,  2.73s/it] 36%|███▋      | 8/22 [00:22<00:29,  2.13s/it] 41%|████      | 9/22 [00:23<00:22,  1.72s/it] 45%|████▌     | 10/22 [00:24<00:17,  1.43s/it] 50%|█████     | 11/22 [00:25<00:13,  1.23s/it] 55%|█████▍    | 12/22 [00:25<00:10,  1.09s/it] 59%|█████▉    | 13/22 [00:26<00:08,  1.01it/s] 64%|██████▎   | 14/22 [00:27<00:07,  1.09it/s] 68%|██████▊   | 15/22 [00:28<00:06,  1.15it/s] 73%|███████▎  | 16/22 [00:28<00:05,  1.20it/s] 77%|███████▋  | 17/22 [00:29<00:04,  1.23it/s] 82%|████████▏ | 18/22 [00:30<00:03,  1.26it/s] 86%|████████▋ | 19/22 [00:31<00:02,  1.28it/s] 91%|█████████ | 20/22 [00:31<00:01,  1.29it/s] 95%|█████████▌| 21/22 [00:32<00:00,  1.30it/s]100%|██████████| 22/22 [00:33<00:00,  1.31it/s]100%|██████████| 22/22 [00:33<00:00,  1.53s/it]
+  0%|          | 0/27 [00:00<?, ?it/s]Epoch: [5/50]: Top1: 74.0, Top5: 93.45454545454545
+Base val accuracy
+  4%|▎         | 1/27 [00:07<03:16,  7.57s/it]  7%|▋         | 2/27 [00:08<02:18,  5.54s/it] 11%|█         | 3/27 [00:09<01:38,  4.12s/it] 15%|█▍        | 4/27 [00:09<01:11,  3.12s/it] 19%|█▊        | 5/27 [00:10<00:53,  2.42s/it] 22%|██▏       | 6/27 [00:11<00:40,  1.93s/it] 26%|██▌       | 7/27 [00:12<00:31,  1.59s/it] 30%|██▉       | 8/27 [00:13<00:25,  1.34s/it] 33%|███▎      | 9/27 [00:13<00:20,  1.17s/it] 37%|███▋      | 10/27 [00:14<00:17,  1.04s/it] 41%|████      | 11/27 [00:15<00:15,  1.05it/s] 44%|████▍     | 12/27 [00:16<00:13,  1.11it/s] 48%|████▊     | 13/27 [00:16<00:11,  1.17it/s] 52%|█████▏    | 14/27 [00:17<00:10,  1.21it/s] 56%|█████▌    | 15/27 [00:18<00:09,  1.24it/s] 59%|█████▉    | 16/27 [00:19<00:08,  1.27it/s] 63%|██████▎   | 17/27 [00:19<00:07,  1.28it/s] 67%|██████▋   | 18/27 [00:20<00:07,  1.28it/s] 70%|███████   | 19/27 [00:21<00:06,  1.30it/s] 74%|███████▍  | 20/27 [00:22<00:05,  1.31it/s] 78%|███████▊  | 21/27 [00:22<00:04,  1.31it/s] 81%|████████▏ | 22/27 [00:23<00:03,  1.32it/s] 85%|████████▌ | 23/27 [00:24<00:03,  1.32it/s] 89%|████████▉ | 24/27 [00:25<00:02,  1.33it/s] 93%|█████████▎| 25/27 [00:25<00:01,  1.33it/s] 96%|█████████▋| 26/27 [00:26<00:00,  1.33it/s]100%|██████████| 27/27 [00:27<00:00,  1.33it/s]100%|██████████| 27/27 [00:27<00:00,  1.03s/it]Epoch: [5/50]: Top1: 94.76543209876543, Top5: 99.80246913580247
+Base Testing: 94.76543209876543/95.06172839506173
+Novel Testing: 74.0/77.51515151515152
+Saving:
+Epoch 5 end ..
+Time taken by epoch 5: 0:03:54
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 6 start ..
+
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:152: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+  0%|          | 0/22 [00:00<?, ?it/s]Epoch:6  iteration:0/71, total loss:1.093750, image loss:0.124939, text loss:0.249512, motion loss:0.906250, lr:0.000097 
+Epoch:6  iteration:10/71, total loss:1.200195, image loss:0.200317, text loss:0.391113, motion loss:0.904785, lr:0.000097 
+Epoch:6  iteration:20/71, total loss:1.123047, image loss:0.185547, text loss:0.259766, motion loss:0.900391, lr:0.000097 
+Epoch:6  iteration:30/71, total loss:1.326172, image loss:0.342773, text loss:0.440430, motion loss:0.935059, lr:0.000097 
+Epoch:6  iteration:40/71, total loss:1.083008, image loss:0.127808, text loss:0.233032, motion loss:0.902344, lr:0.000097 
+Epoch:6  iteration:50/71, total loss:1.053711, image loss:0.105164, text loss:0.199585, motion loss:0.901367, lr:0.000097 
+Epoch:6  iteration:60/71, total loss:1.097656, image loss:0.149048, text loss:0.246094, motion loss:0.899902, lr:0.000097 
+Epoch:6  iteration:70/71, total loss:1.113281, image loss:0.120605, text loss:0.291016, motion loss:0.907227, lr:0.000096 
+novel accuracy
+  5%|▍         | 1/22 [00:07<02:47,  8.00s/it]  9%|▉         | 2/22 [00:08<01:56,  5.83s/it] 14%|█▎        | 3/22 [00:09<01:21,  4.31s/it] 18%|█▊        | 4/22 [00:10<00:58,  3.25s/it] 23%|██▎       | 5/22 [00:11<00:42,  2.51s/it] 27%|██▋       | 6/22 [00:11<00:31,  1.99s/it] 32%|███▏      | 7/22 [00:12<00:24,  1.62s/it] 36%|███▋      | 8/22 [00:13<00:19,  1.36s/it] 41%|████      | 9/22 [00:14<00:15,  1.19s/it] 45%|████▌     | 10/22 [00:14<00:12,  1.06s/it] 50%|█████     | 11/22 [00:15<00:10,  1.03it/s] 55%|█████▍    | 12/22 [00:16<00:09,  1.10it/s] 59%|█████▉    | 13/22 [00:17<00:07,  1.15it/s] 64%|██████▎   | 14/22 [00:17<00:06,  1.20it/s] 68%|██████▊   | 15/22 [00:18<00:05,  1.23it/s] 73%|███████▎  | 16/22 [00:19<00:04,  1.25it/s] 77%|███████▋  | 17/22 [00:20<00:03,  1.26it/s] 82%|████████▏ | 18/22 [00:21<00:03,  1.28it/s] 86%|████████▋ | 19/22 [00:21<00:02,  1.29it/s] 91%|█████████ | 20/22 [00:22<00:01,  1.29it/s] 95%|█████████▌| 21/22 [00:23<00:00,  1.30it/s]100%|██████████| 22/22 [00:24<00:00,  1.30it/s]100%|██████████| 22/22 [00:24<00:00,  1.11s/it]
+  0%|          | 0/27 [00:00<?, ?it/s]Epoch: [6/50]: Top1: 72.54545454545455, Top5: 94.42424242424242
+Base val accuracy
+  4%|▎         | 1/27 [01:04<28:04, 64.80s/it]  7%|▋         | 2/27 [01:05<18:59, 45.58s/it] 11%|█         | 3/27 [01:06<12:51, 32.13s/it] 15%|█▍        | 4/27 [01:07<08:42, 22.72s/it] 19%|█▊        | 5/27 [01:07<05:54, 16.13s/it] 22%|██▏       | 6/27 [01:08<04:01, 11.52s/it] 26%|██▌       | 7/27 [01:09<02:45,  8.29s/it] 30%|██▉       | 8/27 [01:10<01:54,  6.03s/it] 33%|███▎      | 9/27 [01:10<01:20,  4.45s/it] 37%|███▋      | 10/27 [01:11<00:56,  3.34s/it] 41%|████      | 11/27 [01:12<00:41,  2.57s/it] 44%|████▍     | 12/27 [01:13<00:30,  2.03s/it] 48%|████▊     | 13/27 [01:13<00:23,  1.65s/it] 52%|█████▏    | 14/27 [01:14<00:17,  1.38s/it] 56%|█████▌    | 15/27 [01:15<00:14,  1.19s/it] 59%|█████▉    | 16/27 [01:16<00:11,  1.06s/it] 63%|██████▎   | 17/27 [01:21<00:24,  2.48s/it] 67%|██████▋   | 18/27 [01:22<00:17,  1.96s/it] 70%|███████   | 19/27 [01:23<00:12,  1.60s/it] 74%|███████▍  | 20/27 [01:24<00:09,  1.35s/it] 78%|███████▊  | 21/27 [01:24<00:07,  1.17s/it] 81%|████████▏ | 22/27 [01:25<00:05,  1.04s/it] 85%|████████▌ | 23/27 [01:26<00:03,  1.05it/s] 89%|████████▉ | 24/27 [01:27<00:02,  1.12it/s] 93%|█████████▎| 25/27 [01:27<00:01,  1.18it/s] 96%|█████████▋| 26/27 [01:28<00:00,  1.22it/s]100%|██████████| 27/27 [01:29<00:00,  1.25it/s]100%|██████████| 27/27 [01:29<00:00,  3.32s/it]Epoch: [6/50]: Top1: 94.8641975308642, Top5: 99.60493827160494
+Base Testing: 94.8641975308642/95.06172839506173
+Novel Testing: 72.54545454545455/77.51515151515152
+Saving:
+Epoch 6 end ..
+Time taken by epoch 6: 0:04:28
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 7 start ..
+
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:152: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+  0%|          | 0/22 [00:00<?, ?it/s]Epoch:7  iteration:0/71, total loss:1.063477, image loss:0.081421, text loss:0.247437, motion loss:0.898926, lr:0.000096 
+Epoch:7  iteration:10/71, total loss:1.150391, image loss:0.175049, text loss:0.313232, motion loss:0.906250, lr:0.000096 
+Epoch:7  iteration:20/71, total loss:1.103516, image loss:0.132446, text loss:0.269043, motion loss:0.902344, lr:0.000096 
+Epoch:7  iteration:30/71, total loss:1.066406, image loss:0.107300, text loss:0.220337, motion loss:0.902344, lr:0.000096 
+Epoch:7  iteration:40/71, total loss:1.206055, image loss:0.208374, text loss:0.349609, motion loss:0.926758, lr:0.000096 
+Epoch:7  iteration:50/71, total loss:1.075195, image loss:0.116455, text loss:0.244019, motion loss:0.895020, lr:0.000095 
+Epoch:7  iteration:60/71, total loss:1.066406, image loss:0.116455, text loss:0.226929, motion loss:0.895020, lr:0.000095 
+Epoch:7  iteration:70/71, total loss:1.021484, image loss:0.067871, text loss:0.193237, motion loss:0.890625, lr:0.000095 
+novel accuracy
+  5%|▍         | 1/22 [00:11<04:09, 11.86s/it]  9%|▉         | 2/22 [00:12<02:51,  8.57s/it] 14%|█▎        | 3/22 [00:13<01:58,  6.24s/it] 18%|█▊        | 4/22 [00:14<01:22,  4.60s/it] 23%|██▎       | 5/22 [00:15<00:58,  3.45s/it] 27%|██▋       | 6/22 [00:15<00:42,  2.65s/it] 32%|███▏      | 7/22 [00:16<00:31,  2.08s/it] 36%|███▋      | 8/22 [00:17<00:23,  1.68s/it] 41%|████      | 9/22 [00:18<00:18,  1.40s/it] 45%|████▌     | 10/22 [00:18<00:14,  1.21s/it] 50%|█████     | 11/22 [00:19<00:11,  1.07s/it] 55%|█████▍    | 12/22 [00:20<00:09,  1.02it/s] 59%|█████▉    | 13/22 [00:21<00:08,  1.10it/s] 64%|██████▎   | 14/22 [00:21<00:06,  1.15it/s] 68%|██████▊   | 15/22 [00:22<00:05,  1.20it/s] 73%|███████▎  | 16/22 [00:23<00:04,  1.23it/s] 77%|███████▋  | 17/22 [00:24<00:03,  1.26it/s] 82%|████████▏ | 18/22 [00:24<00:03,  1.28it/s] 86%|████████▋ | 19/22 [00:25<00:02,  1.29it/s] 91%|█████████ | 20/22 [00:26<00:01,  1.30it/s] 95%|█████████▌| 21/22 [00:27<00:00,  1.31it/s]100%|██████████| 22/22 [00:27<00:00,  1.31it/s]100%|██████████| 22/22 [00:28<00:00,  1.29s/it]
+  0%|          | 0/27 [00:00<?, ?it/s]Epoch: [7/50]: Top1: 71.69696969696969, Top5: 93.03030303030303
+Base val accuracy
+  4%|▎         | 1/27 [00:07<03:17,  7.58s/it]  7%|▋         | 2/27 [00:08<02:19,  5.57s/it] 11%|█         | 3/27 [00:09<01:39,  4.16s/it] 15%|█▍        | 4/27 [00:10<01:13,  3.18s/it] 19%|█▊        | 5/27 [00:11<00:54,  2.47s/it] 22%|██▏       | 6/27 [00:11<00:41,  1.97s/it] 26%|██▌       | 7/27 [00:12<00:32,  1.60s/it] 30%|██▉       | 8/27 [00:13<00:25,  1.35s/it] 33%|███▎      | 9/27 [00:14<00:21,  1.17s/it] 37%|███▋      | 10/27 [00:14<00:17,  1.05s/it] 41%|████      | 11/27 [00:15<00:15,  1.04it/s] 44%|████▍     | 12/27 [00:16<00:13,  1.11it/s] 48%|████▊     | 13/27 [00:17<00:11,  1.17it/s] 52%|█████▏    | 14/27 [00:17<00:10,  1.21it/s] 56%|█████▌    | 15/27 [00:18<00:09,  1.24it/s] 59%|█████▉    | 16/27 [00:19<00:08,  1.26it/s] 63%|██████▎   | 17/27 [00:20<00:07,  1.28it/s] 67%|██████▋   | 18/27 [00:20<00:06,  1.29it/s] 70%|███████   | 19/27 [00:21<00:06,  1.30it/s] 74%|███████▍  | 20/27 [00:22<00:05,  1.31it/s] 78%|███████▊  | 21/27 [00:23<00:04,  1.31it/s] 81%|████████▏ | 22/27 [00:23<00:03,  1.31it/s] 85%|████████▌ | 23/27 [00:24<00:03,  1.32it/s] 89%|████████▉ | 24/27 [00:25<00:02,  1.32it/s] 93%|█████████▎| 25/27 [00:26<00:01,  1.32it/s] 96%|█████████▋| 26/27 [00:26<00:00,  1.32it/s]100%|██████████| 27/27 [00:27<00:00,  1.32it/s]100%|██████████| 27/27 [00:27<00:00,  1.04s/it]Epoch: [7/50]: Top1: 95.65432098765432, Top5: 99.70370370370371
+Base Testing: 95.65432098765432/95.65432098765432
+Novel Testing: 71.69696969696969/77.51515151515152
+Saving:
+Saving best weight based on Base accuracy at epoch 7
+Epoch 7 end ..
+Time taken by epoch 7: 0:03:34
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 8 start ..
+
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:152: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+  0%|          | 0/22 [00:00<?, ?it/s]Epoch:8  iteration:0/71, total loss:1.022461, image loss:0.098083, text loss:0.165771, motion loss:0.890625, lr:0.000095 
+Epoch:8  iteration:10/71, total loss:1.029297, image loss:0.091797, text loss:0.174927, motion loss:0.896484, lr:0.000095 
+Epoch:8  iteration:20/71, total loss:1.066406, image loss:0.106079, text loss:0.254150, motion loss:0.886719, lr:0.000095 
+Epoch:8  iteration:30/71, total loss:1.117188, image loss:0.174927, text loss:0.270996, motion loss:0.894531, lr:0.000094 
+Epoch:8  iteration:40/71, total loss:1.067383, image loss:0.070801, text loss:0.282715, motion loss:0.890625, lr:0.000094 
+Epoch:8  iteration:50/71, total loss:0.993164, image loss:0.069031, text loss:0.134521, motion loss:0.891113, lr:0.000094 
+Epoch:8  iteration:60/71, total loss:1.075195, image loss:0.095032, text loss:0.271729, motion loss:0.892090, lr:0.000094 
+Epoch:8  iteration:70/71, total loss:1.001953, image loss:0.050171, text loss:0.163940, motion loss:0.895020, lr:0.000094 
+novel accuracy

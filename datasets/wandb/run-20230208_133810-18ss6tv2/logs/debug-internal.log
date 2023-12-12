@@ -1,0 +1,92 @@
+2023-02-08 13:38:12,259 INFO    MainThread:3478645 [internal.py:wandb_internal():86] W&B internal server running at pid: 3478645, started at: 2023-02-08 13:38:12.258509
+2023-02-08 13:38:12,265 DEBUG   HandlerThread:3478645 [handler.py:handle_request():128] handle_request: check_version
+2023-02-08 13:38:12,266 INFO    WriterThread:3478645 [datastore.py:open_for_write():77] open: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/run-18ss6tv2.wandb
+2023-02-08 13:38:12,270 DEBUG   SenderThread:3478645 [sender.py:send():182] send: header
+2023-02-08 13:38:12,270 DEBUG   SenderThread:3478645 [sender.py:send_request():196] send_request: check_version
+2023-02-08 13:38:12,350 DEBUG   SenderThread:3478645 [sender.py:send():182] send: run
+2023-02-08 13:38:12,635 DEBUG   HandlerThread:3478645 [handler.py:handle_request():128] handle_request: run_start
+2023-02-08 13:38:12,638 INFO    SenderThread:3478645 [dir_watcher.py:__init__():168] watching files in: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files
+2023-02-08 13:38:12,638 INFO    SenderThread:3478645 [sender.py:_start_run_threads():740] run started: 18ss6tv2 with start time 1675859890
+2023-02-08 13:38:12,638 DEBUG   SenderThread:3478645 [sender.py:send():182] send: summary
+2023-02-08 13:38:12,639 INFO    SenderThread:3478645 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-02-08 13:38:12,646 DEBUG   HandlerThread:3478645 [meta.py:__init__():39] meta init
+2023-02-08 13:38:12,647 DEBUG   HandlerThread:3478645 [meta.py:__init__():53] meta init done
+2023-02-08 13:38:12,647 DEBUG   HandlerThread:3478645 [meta.py:probe():210] probe
+2023-02-08 13:38:12,656 DEBUG   HandlerThread:3478645 [meta.py:_setup_git():200] setup git
+2023-02-08 13:38:12,675 DEBUG   HandlerThread:3478645 [meta.py:_setup_git():207] setup git done
+2023-02-08 13:38:12,676 DEBUG   HandlerThread:3478645 [meta.py:_save_pip():57] save pip
+2023-02-08 13:38:12,678 DEBUG   HandlerThread:3478645 [meta.py:_save_pip():71] save pip done
+2023-02-08 13:38:12,678 DEBUG   HandlerThread:3478645 [meta.py:_save_conda():78] save conda
+2023-02-08 13:38:13,183 DEBUG   HandlerThread:3478645 [meta.py:_save_conda():86] save conda done
+2023-02-08 13:38:13,183 DEBUG   HandlerThread:3478645 [meta.py:probe():252] probe done
+2023-02-08 13:38:13,291 DEBUG   SenderThread:3478645 [sender.py:send():182] send: files
+2023-02-08 13:38:13,292 INFO    SenderThread:3478645 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2023-02-08 13:38:13,304 DEBUG   HandlerThread:3478645 [handler.py:handle_request():128] handle_request: stop_status
+2023-02-08 13:38:13,314 DEBUG   SenderThread:3478645 [sender.py:send_request():196] send_request: stop_status
+2023-02-08 13:38:13,649 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_created():216] file/dir created: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/output.log
+2023-02-08 13:38:13,649 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_created():216] file/dir created: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/requirements.txt
+2023-02-08 13:38:13,650 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_created():216] file/dir created: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/wandb-metadata.json
+2023-02-08 13:38:13,650 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_created():216] file/dir created: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/wandb-summary.json
+2023-02-08 13:38:13,651 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_created():216] file/dir created: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/conda-environment.yaml
+2023-02-08 13:38:13,914 INFO    Thread-16 :3478645 [upload_job.py:push():137] Uploaded file /tmp/tmp0yxmkmgvwandb/ef9wd9le-wandb-metadata.json
+2023-02-08 13:38:15,642 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/output.log
+2023-02-08 13:38:17,643 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/output.log
+2023-02-08 13:38:19,645 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/output.log
+2023-02-08 13:38:22,647 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/output.log
+2023-02-08 13:38:26,650 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/output.log
+2023-02-08 13:38:28,513 DEBUG   HandlerThread:3478645 [handler.py:handle_request():128] handle_request: stop_status
+2023-02-08 13:38:28,513 DEBUG   SenderThread:3478645 [sender.py:send_request():196] send_request: stop_status
+2023-02-08 13:38:40,529 DEBUG   SenderThread:3478645 [sender.py:send():182] send: history
+2023-02-08 13:38:40,530 DEBUG   SenderThread:3478645 [sender.py:send():182] send: summary
+2023-02-08 13:38:40,533 INFO    SenderThread:3478645 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-02-08 13:38:40,534 DEBUG   SenderThread:3478645 [sender.py:send():182] send: history
+2023-02-08 13:38:40,535 DEBUG   SenderThread:3478645 [sender.py:send():182] send: summary
+2023-02-08 13:38:40,536 INFO    SenderThread:3478645 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-02-08 13:38:40,536 DEBUG   SenderThread:3478645 [sender.py:send():182] send: history
+2023-02-08 13:38:40,537 DEBUG   SenderThread:3478645 [sender.py:send():182] send: summary
+2023-02-08 13:38:40,538 INFO    SenderThread:3478645 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-02-08 13:38:40,539 DEBUG   SenderThread:3478645 [sender.py:send():182] send: history
+2023-02-08 13:38:40,539 DEBUG   SenderThread:3478645 [sender.py:send():182] send: summary
+2023-02-08 13:38:40,540 INFO    SenderThread:3478645 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-02-08 13:38:40,662 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/output.log
+2023-02-08 13:38:40,663 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/wandb-summary.json
+2023-02-08 13:38:41,129 DEBUG   SenderThread:3478645 [sender.py:send():182] send: stats
+2023-02-08 13:38:42,664 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/output.log
+2023-02-08 13:38:43,713 DEBUG   HandlerThread:3478645 [handler.py:handle_request():128] handle_request: stop_status
+2023-02-08 13:38:43,713 DEBUG   SenderThread:3478645 [sender.py:send_request():196] send_request: stop_status
+2023-02-08 13:38:58,966 DEBUG   HandlerThread:3478645 [handler.py:handle_request():128] handle_request: stop_status
+2023-02-08 13:38:58,967 DEBUG   SenderThread:3478645 [sender.py:send_request():196] send_request: stop_status
+2023-02-08 13:39:11,621 DEBUG   SenderThread:3478645 [sender.py:send():182] send: stats
+2023-02-08 13:39:14,182 DEBUG   HandlerThread:3478645 [handler.py:handle_request():128] handle_request: stop_status
+2023-02-08 13:39:14,182 DEBUG   SenderThread:3478645 [sender.py:send_request():196] send_request: stop_status
+2023-02-08 13:39:14,418 DEBUG   SenderThread:3478645 [sender.py:send():182] send: history
+2023-02-08 13:39:14,419 DEBUG   SenderThread:3478645 [sender.py:send():182] send: summary
+2023-02-08 13:39:14,420 INFO    SenderThread:3478645 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-02-08 13:39:14,421 DEBUG   SenderThread:3478645 [sender.py:send():182] send: history
+2023-02-08 13:39:14,422 DEBUG   SenderThread:3478645 [sender.py:send():182] send: summary
+2023-02-08 13:39:14,426 INFO    SenderThread:3478645 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-02-08 13:39:14,427 DEBUG   SenderThread:3478645 [sender.py:send():182] send: history
+2023-02-08 13:39:14,428 DEBUG   SenderThread:3478645 [sender.py:send():182] send: summary
+2023-02-08 13:39:14,428 INFO    SenderThread:3478645 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-02-08 13:39:14,429 DEBUG   SenderThread:3478645 [sender.py:send():182] send: history
+2023-02-08 13:39:14,430 DEBUG   SenderThread:3478645 [sender.py:send():182] send: summary
+2023-02-08 13:39:14,431 INFO    SenderThread:3478645 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2023-02-08 13:39:14,690 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/wandb-summary.json
+2023-02-08 13:39:16,692 INFO    Thread-13 :3478645 [dir_watcher.py:_on_file_modified():229] file/dir modified: /home/shahzaa/Code/ActionCLIP/datasets/wandb/run-20230208_133810-18ss6tv2/files/output.log
+2023-02-08 13:39:29,383 DEBUG   HandlerThread:3478645 [handler.py:handle_request():128] handle_request: stop_status
+2023-02-08 13:39:29,384 DEBUG   SenderThread:3478645 [sender.py:send_request():196] send_request: stop_status
+2023-02-08 13:39:42,109 DEBUG   SenderThread:3478645 [sender.py:send():182] send: stats
+2023-02-08 13:39:44,640 DEBUG   HandlerThread:3478645 [handler.py:handle_request():128] handle_request: stop_status
+2023-02-08 13:39:44,640 DEBUG   SenderThread:3478645 [sender.py:send_request():196] send_request: stop_status
+2023-02-08 13:39:59,824 DEBUG   HandlerThread:3478645 [handler.py:handle_request():128] handle_request: stop_status
+2023-02-08 13:39:59,825 DEBUG   SenderThread:3478645 [sender.py:send_request():196] send_request: stop_status
+2023-02-08 13:40:12,583 DEBUG   SenderThread:3478645 [sender.py:send():182] send: stats
+2023-02-08 13:40:15,026 DEBUG   HandlerThread:3478645 [handler.py:handle_request():128] handle_request: stop_status
+2023-02-08 13:40:15,027 DEBUG   SenderThread:3478645 [sender.py:send_request():196] send_request: stop_status
+2023-02-08 13:40:30,230 DEBUG   HandlerThread:3478645 [handler.py:handle_request():128] handle_request: stop_status
+2023-02-08 13:40:30,231 DEBUG   SenderThread:3478645 [sender.py:send_request():196] send_request: stop_status
+2023-02-08 13:40:43,059 DEBUG   SenderThread:3478645 [sender.py:send():182] send: stats
+2023-02-08 13:40:45,434 DEBUG   HandlerThread:3478645 [handler.py:handle_request():128] handle_request: stop_status
+2023-02-08 13:40:45,435 DEBUG   SenderThread:3478645 [sender.py:send_request():196] send_request: stop_status
+2023-02-08 13:41:00,634 DEBUG   HandlerThread:3478645 [handler.py:handle_request():128] handle_request: stop_status
+2023-02-08 13:41:00,635 DEBUG   SenderThread:3478645 [sender.py:send_request():196] send_request: stop_status

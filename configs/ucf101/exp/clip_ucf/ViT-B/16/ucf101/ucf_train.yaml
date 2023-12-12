@@ -1,0 +1,63 @@
+# pretrain:  '/public/home/ock/video_clip/video-clip/clip_models/vit16_8f/model_best.pt'
+# pretrain: '/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/ActionCLIP/weight/vit-b-16-8f.pt'
+pretrain:  None
+resume:
+seed: 1024
+prompt:
+    use: True
+    num_of_token: 100
+    num_of_text_token: 50
+    INITIATION: 'random' 
+    DEEP: True
+    DROPOUT: 0.1
+data:
+    dataset: ucf101
+    modality: RGB
+    num_segments: 8
+    seg_length: 1
+    split: 1
+    batch_size: 30
+    workers: 8
+    gpus: 1
+    num_classes: 101
+    image_tmpl: 'img_{:05d}.jpg'    
+    # image_tmpl: '{:06d}.jpg'
+    train_list: '/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/prompt_work/ActionCLIP/UCF_101_txt/train.txt' 
+    val_list: '/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/prompt_work/ActionCLIP/UCF_101_txt/test.txt'
+    label_list: '/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/prompt_work/ActionCLIP/lists/ucf_labels.csv'
+    gpt_discription: '/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/prompt_work/ActionCLIP/GPT_discription/UCF_101_gpt_Class_discription_new.csv'
+    index_bias: 1
+    input_size: 224
+    randaug:
+        N: 0 #2
+        M: 0  #9
+network:
+    arch: ViT-B/16  #ViT-B/32 ViT-B/16
+    init: True  
+    drop_out: 0.0 
+    emb_dropout: 0.0 
+    type: clip_ucf
+    sim_header: "Transf"  #Transf   meanP   LSTM   Transf_cls Conv_1D
+    fix_text: False
+    fix_img: False
+    describe:
+solver:
+    type: cosine
+    epochs: 90
+    start_epoch: 0
+    epoch_offset: 0
+    optim: adamw
+    lr: 5.e-4       #5.e-6
+    lr_warmup_step: 1
+    momentum: 0.9
+    weight_decay: 0.2                   
+    lr_decay_step: 15
+    lr_decay_factor: 0.1
+    clip_gradient: 20
+    loss_type: nll
+    evaluate: False
+    ratio: 1
+    f_ratio: 10
+logging:
+    print_freq: 10
+    eval_freq: 1

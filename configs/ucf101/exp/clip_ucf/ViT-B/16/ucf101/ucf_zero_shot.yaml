@@ -1,0 +1,40 @@
+pretrain: '/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/prompt_work/K_400_exp_temp_prpmpt_text_prompt_with_fusion/model_best.pt' # zero shot need a pretrained model
+seed: 1024
+prompt:
+    use: True
+    num_of_token: 100
+    num_of_text_token: 50
+    INITIATION: 'random' 
+    DEEP: True
+    DROPOUT: 0.1
+data:
+    dataset: ucf101
+    modality: RGB
+    num_segments: 16
+    seg_length: 1
+    split: 1
+    batch_size: 20
+    workers: 8
+    num_classes: 101
+    image_tmpl: 'img_{:05d}.jpg'
+    val_list: '/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/prompt_work/ActionCLIP/UCF_101_txt/test.txt'
+    label_list: '/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/prompt_work/ActionCLIP/lists/ucf_labels.csv'
+    gpt_discription: '/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/prompt_work/ActionCLIP/GPT_discription/UCF_101_gpt_Class_discription_new.csv'
+    index_bias: 1
+    input_size: 224
+    randaug:
+        N: 0 #2
+        M: 0  #9
+network:
+    arch: ViT-B/16  #ViT-B/32 ViT-B/16
+    init: True
+    drop_out: 0.0
+    emb_dropout: 0.0 
+    type: clip_ucf
+    sim_header: "Transf"  #Transf   meanP   LSTM   Transf_cls Conv_1D
+    fix_text: False
+    fix_img: False
+    describe:
+logging:
+    print_freq: 10
+    eval_freq: 1

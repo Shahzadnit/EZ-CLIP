@@ -1,0 +1,82 @@
+resume:    #'/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/Exp/clip_k400/ViT-B/16/kinetics400/motion_loss_testing_5/last_model.pt'
+pretrain: #'/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/Add_visual_text_proj_tunable_1_sep/model_best_K_400.pt'
+seed: 1024
+training_name: 'k400_tiny_training_check'
+use_motion_loss: True
+prompt:
+    use: False
+    # num_of_token: 100 #197
+    # num_of_text_token: 50   #77
+    INITIATION: 'random' 
+    DEEP: True
+    DROPOUT: 0.1
+data:
+    dataset: kinetics400
+    modality: RGB
+    num_segments: 8
+    seg_length: 1
+    batch_size: 75
+    workers: 16
+    # num_classes: 400
+    image_tmpl: 'img_{:05d}.jpg'
+    use_chat_gpt: True
+    ###################################### K-400 ############################
+    train_list: '/media/sdb_access/Data_for_Action_CLIP/Txts/kinetic_400_txt/train_400_mini.txt'
+    # train_list: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/Base_to_novel/my_hmdb_base_train.txt'
+    val_list: '/media/sdb_access/Data_for_Action_CLIP/Txts/kinetic_400_txt/test_400_mini.txt' #
+    gpt_discription: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/GPT_discription/Kinetic_400_gpt_Class_discription_new.csv'
+    label_list: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/lists/kinetics_400_labels.csv'
+    ###################################### Something-Something ############################
+    something_train_list: '/media/sdb_access/Data_for_Action_CLIP/Txts/Someting_Something/train_mini.txt'
+    something_val_list: '/media/sdb_access/Data_for_Action_CLIP/Txts/Someting_Something/val_mini.txt' #
+    something_gpt_discription: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/GPT_discription/Something_gpt_Class_discription_new.csv'
+    something_label_list: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/lists/something_something.csv'
+    ############ UCF Val detail  #######
+    ucf_val_list: '/media/sdb_access/Data_for_Action_CLIP/Txts/UCF_101_txt/test.txt' #
+    ucf_gpt_discription: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/GPT_discription/UCF_101_gpt_Class_discription_new.csv'
+    ucf_label_list: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/lists/ucf_labels.csv'
+    ############## HMDB Val detail ################
+    hmdb_val_list: '/media/sdb_access/Data_for_Action_CLIP/Txts/HMDB_51_txt/test.txt' #
+    hmdb_gpt_discription: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/GPT_discription/HMDB_gpt_Class_discription_new.csv'
+    hmdb_label_list: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/lists/hmdb51_labels.csv'
+    ############## K60 Val detail ################
+    k600_val_list: '/media/sdb_access/Data_for_Action_CLIP/Txts/test_600_exclusive.txt' #
+    k600_gpt_discription: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/GPT_discription/kinetics_600_labels_exclusive_discription_new.csv'
+    k600_label_list: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/lists/kinetics_600_labels_exclusive.csv'
+    #############
+    index_bias: 1
+    input_size: 224
+    randaug:
+        N: 0 #2
+        M: 0  #9
+    random_shift: False #True
+network:
+    arch: ViT-B/16  #ViT-B/32 ViT-B/16
+    init: True
+    tsm: False
+    drop_out: 0.1
+    emb_dropout: 0.0 
+    type: clip_k400
+    sim_header: "Transf"  #Transf   meanP  LSTM Conv_1D Transf_cls
+    joint: False
+    describe:
+solver:
+    type: cosine
+    epochs: 50
+    start_epoch: 0
+    epoch_offset: 0
+    optim: adamw
+    lr: 1.e-4 #5.e-6
+    lr_warmup_step: 5
+    momentum: 0.9
+    weight_decay: 0.2
+    lr_decay_step: 15
+    lr_decay_factor: 0.1
+    clip_gradient: 20
+    loss_type: nll
+    evaluate: False
+    ratio: 1
+    f_ratio: 10
+logging:
+    print_freq: 10
+    eval_freq: 1

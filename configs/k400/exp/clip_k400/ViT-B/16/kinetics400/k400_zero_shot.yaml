@@ -1,0 +1,40 @@
+pretrain: '/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/prompt_work/trained_weight_16/model_best.pt'
+seed: 1024
+prompt:
+    use: True
+    num_of_token: 100
+    num_of_text_token: 50
+    INITIATION: 'random' 
+    DEEP: True
+    DROPOUT: 0.1
+data:
+    dataset: kinetics400
+    modality: RGB
+    num_segments: 16
+    seg_length: 1
+    split: 1
+    batch_size: 2
+    workers: 4
+    num_classes: 400
+    image_tmpl: 'img_{:05d}.jpg'
+    val_list: '/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/ActionCLIP/kinetic_400_txt/test.txt'
+    label_list: '/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/ActionCLIP/lists/kinetics_400_labels.csv'
+    gpt_discription: '/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/ActionCLIP/GPT_discription/Kinetic_400_gpt_Class_discription_new.csv'
+    index_bias: 1
+    input_size: 224
+    random_shift: False
+network:
+    arch: ViT-B/16  #ViT-B/32 ViT-B/16
+    init: True
+    tsm: False
+    drop_out: 0.0 # probability of an element to be zeroed
+    emb_dropout: 0.0 # probability of embedding to be zeroed
+    type: clip_k400
+    sim_header: "Transf"   #Transf   meanP  LSTM  Conv_1D  Transf_cls
+    joint: False
+    describe:
+    ratio: 1
+    f_ratio: 10
+logging:
+    print_freq: 10
+    eval_freq: 1
