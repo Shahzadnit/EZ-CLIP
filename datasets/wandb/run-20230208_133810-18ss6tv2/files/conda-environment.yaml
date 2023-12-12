@@ -1,4 +1,0 @@
-name: Action_CLIP
-channels:
-  - defaults
-prefix: /home/shahzaa/anaconda3/envs/Action_CLIP/envs/Action_CLIP
