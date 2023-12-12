@@ -4,6 +4,6 @@
 
 ## Overview
 
-![ActionCLIP](Hole_idea.pdf)
+![ActionCLIP](EZ-CLIP.png)
 
 
