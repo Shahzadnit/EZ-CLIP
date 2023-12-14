@@ -4,6 +4,6 @@
 
 ## Overview
 
-![ActionCLIP](EZ-CLIP.png)
+![EZ-CLIP](EZ-CLIP.png)
 
 
