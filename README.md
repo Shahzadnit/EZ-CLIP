@@ -8,12 +8,15 @@
 
 
 ## Content 
- - [Prerequisites](#prerequisites)
+- [Prerequisites](#prerequisites)
 - [Data Preparation](#data-preparation)
 - [Training](#training)
 - [Testing](#testing)
 - [Acknowledgments](#Acknowledgments)
 
+## Prerequisites
+
+We provide the conda requirements.txt to help you install these libraries. You can initialize environment by using `pip install -r requirements.txt`.
 
 # Acknowledgments
 Our code is based on [ActionCLIP](https://github.com/sallymmx/ActionCLIP?tab=readme-ov-file) 
