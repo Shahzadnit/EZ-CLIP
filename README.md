@@ -7,3 +7,13 @@
 ![EZ-CLIP](EZ-CLIP.png)
 
 
+## Content 
+ - [Prerequisites](#prerequisites)
+- [Data Preparation](#data-preparation)
+- [Training](#training)
+- [Testing](#testing)
+- [Acknowledgments](#Acknowledgments)
+
+
+# Acknowledgments
+Our code is based on [ActionCLIP](https://github.com/sallymmx/ActionCLIP?tab=readme-ov-file) 
