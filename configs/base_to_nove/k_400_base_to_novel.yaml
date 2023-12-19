@@ -1,0 +1,69 @@
+resume:    #'/cluster/datastore/shahzaa/Code/Prompt_Adaptor_mix_work/Exp_new/clip_k400/ViT-B/32/kinetics400/base_to_novel_k400_ViT_32/last_model.pt'
+pretrain:  #''
+weight_save_dir: 'Exp'
+seed: 1024
+use_motion_loss: True
+training_name: 'base_to_novel_k400'
+prompt:
+    use: True
+    # num_of_token: 100 #197
+    # num_of_text_token: 50   #77
+    INITIATION: 'random' 
+    DEEP: True
+    DROPOUT: 0.1
+data:
+    dataset: kinetics400
+    modality: RGB
+    num_segments: 8   # nunber of frames per video 
+    seg_length: 1
+    batch_size: 50
+    workers: 16
+    image_tmpl: 'img_{:05d}.jpg'
+    use_llm: True
+    ###################################### K-400 base ############################
+    train_list: 'dataset_splits/K-400/base_to_novel/K_400_base_train.txt'
+    val_list: 'dataset_splits/K-400/base_to_novel/K_400_base_val.txt' #
+    gpt_discription: 'GPT_discription/Kinetic_400_gpt_Class_discription_new.csv'
+    label_list: '/cluster/datastore/shahzaa/Code/Prompt_Adaptor_mix_work/Base_to_novel/k_400/k_400_base_train_class_list.csv'
+    ###################################### Something-Something ############################
+    ############## K400 novel ################
+    novel_val_list: 'dataset_splits/K-400/base_to_novel/K_400_novel_val.txt' #
+    novel_gpt_discription: 'GPT_discription/Kinetic_400_gpt_Class_discription_new.csv'
+    novel_label_list: 'dataset_splits/K-400/base_to_novel/k_400_novel_val_class_list.csv'
+    #############
+    index_bias: 1
+    input_size: 224
+    randaug:
+        N: 0 #2
+        M: 0  #9
+    random_shift: False #True
+network:
+    arch: ViT-B/16  #ViT-B/32 ViT-B/16  ViT-L/14
+    init: True
+    tsm: False
+    drop_out: 0.1
+    emb_dropout: 0.0
+    type: clip_k400
+    sim_header: "Transf"  #Transf   meanP  LSTM Conv_1D Transf_cls
+    joint: False
+    describe:
+solver:
+    type: cosine
+    epochs: 100
+    start_epoch: 0
+    epoch_offset: 0
+    optim: adamw
+    lr: 5.e-6
+    lr_warmup_step: 5
+    momentum: 0.9
+    weight_decay: 0.2
+    lr_decay_step: 15
+    lr_decay_factor: 0.1
+    clip_gradient: 20
+    loss_type: nll
+    evaluate: False
+    ratio: 1
+    f_ratio: 10
+logging:
+    print_freq: 10
+    eval_freq: 1

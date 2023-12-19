@@ -1,0 +1,601 @@
+id,name
+0,tying knot (not on a tie)
+1,swinging baseball bat
+2,playing ocarina
+3,waiting in line
+4,land sailing
+5,snowboarding
+6,disc golfing
+7,cleaning toilet
+8,eating doughnuts
+9,poking bellybutton
+10,situp
+11,petting animal (not cat)
+12,doing nails
+13,jetskiing
+14,doing jigsaw puzzle
+15,drop kicking
+16,somersaulting
+17,skiing slalom
+18,hurling (sport)
+19,battle rope training
+20,extinguishing fire
+21,krumping
+22,knitting
+23,making snowman
+24,punching bag
+25,opening wine bottle
+26,flying kite
+27,making a cake
+28,bobsledding
+29,playing violin
+30,breading or breadcrumbing
+31,throwing water balloon
+32,hoverboarding
+33,changing wheel (not on bike)
+34,playing accordion
+35,folding napkins
+36,skydiving
+37,climbing a rope
+38,arranging flowers
+39,fencing (sport)
+40,fixing hair
+41,scrapbooking
+42,tagging graffiti
+43,scuba diving
+44,jumping jacks
+45,belly dancing
+46,bottling
+47,testifying
+48,capsizing
+49,catching fish
+50,playing lute
+51,dining
+52,mowing lawn
+53,high kick
+54,shooting goal (soccer)
+55,cracking back
+56,embroidering
+57,ironing
+58,giving or receiving award
+59,crawling baby
+60,rope pushdown
+61,wading through water
+62,braiding hair
+63,playing field hockey
+64,sausage making
+65,decorating the christmas tree
+66,licking
+67,news anchoring
+68,riding mechanical bull
+69,clay pottery making
+70,eating spaghetti
+71,watching tv
+72,pouring beer
+73,historical reenactment
+74,kitesurfing
+75,writing
+76,feeding birds
+77,playing bass guitar
+78,hammer throw
+79,building lego
+80,shucking oysters
+81,motorcycling
+82,wrapping present
+83,using inhaler
+84,spray painting
+85,playing darts
+86,hurdling
+87,clam digging
+88,waxing back
+89,raising eyebrows
+90,washing hair
+91,busking
+92,wading through mud
+93,tiptoeing
+94,catching or throwing softball
+95,photobombing
+96,trimming or shaving beard
+97,playing volleyball
+98,bouncing on trampoline
+99,laying concrete
+100,dyeing hair
+101,laying bricks
+102,dancing charleston
+103,fly tying
+104,grinding meat
+105,eating cake
+106,playing dominoes
+107,finger snapping
+108,blowing nose
+109,holding snake
+110,getting a piercing
+111,faceplanting
+112,polishing metal
+113,flint knapping
+114,playing rubiks cube
+115,front raises
+116,lock picking
+117,using a wrench
+118,ironing hair
+119,riding or walking with horse
+120,peeling potatoes
+121,throwing snowballs
+122,making tea
+123,crying
+124,casting fishing line
+125,ice fishing
+126,trapezing
+127,parasailing
+128,shaking hands
+129,catching or throwing frisbee
+130,swimming butterfly stroke
+131,high jump
+132,springboard diving
+133,playing poker
+134,shuffling feet
+135,bungee jumping
+136,falling off chair
+137,playing tennis
+138,smoking
+139,cleaning gutters
+140,home roasting coffee
+141,spinning poi
+142,chopping meat
+143,brush painting
+144,sawing wood
+145,using segway
+146,smelling feet
+147,roasting pig
+148,using circular saw
+149,bathing dog
+150,dribbling basketball
+151,blowing bubble gum
+152,shearing sheep
+153,cutting orange
+154,using a power drill
+155,snowkiting
+156,shaking head
+157,using a microscope
+158,dyeing eyebrows
+159,playing paintball
+160,playing hand clapping games
+161,dancing gangnam style
+162,playing kickball
+163,roasting marshmallows
+164,jogging
+165,stomping grapes
+166,jumping bicycle
+167,juggling fire
+168,playing clarinet
+169,sticking tongue out
+170,getting a tattoo
+171,pillow fight
+172,side kick
+173,square dancing
+174,wood burning (art)
+175,staring
+176,steer roping
+177,grooming horse
+178,blowing out candles
+179,carving ice
+180,playing squash or racquetball
+181,ice climbing
+182,playing keyboard
+183,climbing ladder
+184,putting on foundation
+185,driving tractor
+186,cutting nails
+187,cracking knuckles
+188,pushing wheelbarrow
+189,cracking neck
+190,threading needle
+191,answering questions
+192,bench pressing
+193,dancing macarena
+194,trimming shrubs
+195,eating chips
+196,playing monopoly
+197,leatherworking
+198,changing gear in car
+199,massaging back
+200,sword swallowing
+201,texting
+202,jaywalking
+203,blowing leaves
+204,moving furniture
+205,brushing hair
+206,blowdrying hair
+207,inflating balloons
+208,sword fighting
+209,ripping paper
+210,cheerleading
+211,dumpster diving
+212,playing controller
+213,golf driving
+214,opening door
+215,rock scissors paper
+216,mosh pit dancing
+217,tapping guitar
+218,kissing
+219,winking
+220,carving pumpkin
+221,hula hooping
+222,using puppets
+223,contact juggling
+224,playing basketball
+225,throwing ball (not baseball or American football)
+226,wrestling
+227,falling off bike
+228,presenting weather forecast
+229,drinking shots
+230,head stand
+231,crossing river
+232,needle felting
+233,preparing salad
+234,yoga
+235,scrubbing face
+236,breathing fire
+237,bookbinding
+238,eating hotdog
+239,sleeping
+240,smoking pipe
+241,riding a bike
+242,weaving basket
+243,water sliding
+244,weaving fabric
+245,bandaging
+246,whistling
+247,playing cymbals
+248,riding unicycle
+249,juggling balls
+250,headbanging
+251,waxing chest
+252,welding
+253,bending back
+254,cleaning shoes
+255,water skiing
+256,tying bow tie
+257,shuffling cards
+258,alligator wrestling
+259,tickling
+260,playing organ
+261,dancing ballet
+262,unboxing
+263,kicking soccer ball
+264,surfing crowd
+265,triple jump
+266,pushing cart
+267,playing ping pong
+268,skipping stone
+269,applauding
+270,delivering mail
+271,separating eggs
+272,swing dancing
+273,golf chipping
+274,hockey stop
+275,bodysurfing
+276,playing polo
+277,stretching leg
+278,rolling pastry
+279,washing hands
+280,playing bagpipes
+281,riding camel
+282,hugging (not baby)
+283,longboarding
+284,riding elephant
+285,washing feet
+286,tackling
+287,yawning
+288,reading book
+289,massaging feet
+290,packing
+291,shaving legs
+292,riding snow blower
+293,planting trees
+294,driving car
+295,curling hair
+296,sucking lolly
+297,surfing water
+298,bee keeping
+299,shining flashlight
+300,card throwing
+301,using atm
+302,long jump
+303,clapping
+304,chopping wood
+305,playing maracas
+306,chopping vegetables
+307,laughing
+308,making paper aeroplanes
+309,swimming breast stroke
+310,parkour
+311,sled dog racing
+312,opening bottle (not wine)
+313,pushing car
+314,bull fighting
+315,watering plants
+316,sanding floor
+317,lawn mower racing
+318,beatboxing
+319,tap dancing
+320,playing harp
+321,mountain climber (exercise)
+322,stretching arm
+323,tie dying
+324,snatch weight lifting
+325,robot dancing
+326,cutting pineapple
+327,cooking on campfire
+328,geocaching
+329,carrying baby
+330,visiting the zoo
+331,hitting baseball
+332,jumpstyle dancing
+333,coloring in
+334,building shed
+335,playing scrabble
+336,doing aerobics
+337,drumming fingers
+338,drooling
+339,making a sandwich
+340,petting cat
+341,blasting sand
+342,dodgeball
+343,assembling bicycle
+344,eating ice cream
+345,shoveling snow
+346,kicking field goal
+347,playing blackjack
+348,cooking scallops
+349,building sandcastle
+350,tasting wine
+351,twiddling fingers
+352,tying shoe laces
+353,juggling soccer ball
+354,sign language interpreting
+355,playing netball
+356,hopscotch
+357,ice swimming
+358,recording music
+359,clean and jerk
+360,marching
+361,opening present
+362,shaving head
+363,slacklining
+364,shining shoes
+365,capoeira
+366,making sushi
+367,building cabinet
+368,tossing coin
+369,folding paper
+370,shopping
+371,opening refrigerator
+372,tai chi
+373,swimming front crawl
+374,photocopying
+375,sweeping floor
+376,talking on cell phone
+377,repairing puncture
+378,doing laundry
+379,spelunking
+380,making horseshoes
+381,laying stone
+382,playing ice hockey
+383,changing oil
+384,putting on mascara
+385,playing piano
+386,playing recorder
+387,snowmobiling
+388,planing wood
+389,blowing glass
+390,getting a haircut
+391,arm wrestling
+392,pinching
+393,auctioning
+394,person collecting garbage
+395,putting on lipstick
+396,playing pan pipes
+397,passing American football (in game)
+398,massaging legs
+399,running on treadmill
+400,tapping pen
+401,ski jumping
+402,drawing
+403,burping
+404,playing harmonica
+405,luge
+406,sneezing
+407,cutting apple
+408,tightrope walking
+409,roller skating
+410,docking boat
+411,headbutting
+412,trimming trees
+413,reading newspaper
+414,base jumping
+415,using a paint roller
+416,air drumming
+417,flipping pancake
+418,shooting basketball
+419,karaoke
+420,abseiling
+421,eating watermelon
+422,shaping bread dough
+423,barbequing
+424,walking the dog
+425,fidgeting
+426,putting on shoes
+427,playing didgeridoo
+428,washing dishes
+429,cooking egg
+430,cleaning windows
+431,catching or throwing baseball
+432,mopping floor
+433,paragliding
+434,gold panning
+435,bouncing on bouncy castle
+436,cutting watermelon
+437,cosplaying
+438,playing chess
+439,massaging person's head
+440,country line dancing
+441,crossing eyes
+442,zumba
+443,breaking boards
+444,sharpening pencil
+445,rock climbing
+446,making balloon shapes
+447,eating burger
+448,gospel singing in church
+449,tying necktie
+450,cartwheeling
+451,jumping into pool
+452,laying tiles
+453,adjusting glasses
+454,grooming dog
+455,chiseling stone
+456,bending metal
+457,pole vault
+458,attending conference
+459,sailing
+460,throwing axe
+461,deadlifting
+462,playing trombone
+463,backflip (human)
+464,making cheese
+465,lunge
+466,playing cricket
+467,playing xylophone
+468,fixing bicycle
+469,making bubbles
+470,push up
+471,waxing legs
+472,riding scooter
+473,throwing tantrum
+474,exercising with an exercise ball
+475,golf putting
+476,curling (sport)
+477,playing gong
+478,passing american football (not in game)
+479,peeling apples
+480,picking fruit
+481,squat
+482,slapping
+483,using a sledge hammer
+484,archery
+485,shot put
+486,throwing knife
+487,tango dancing
+488,riding mule
+489,passing soccer ball
+490,smoking hookah
+491,playing drums
+492,pushing wheelchair
+493,pirouetting
+494,playing pinball
+495,unloading truck
+496,dunking basketball
+497,cleaning pool
+498,sipping cup
+499,sharpening knives
+500,putting in contact lenses
+501,arguing
+502,counting money
+503,plastering
+504,making the bed
+505,putting on eyeliner
+506,walking through snow
+507,diving cliff
+508,gymnastics tumbling
+509,installing carpet
+510,tasting food
+511,making jewelry
+512,climbing tree
+513,javelin throw
+514,playing ukulele
+515,directing traffic
+516,lighting fire
+517,playing marbles
+518,calligraphy
+519,playing with trains
+520,canoeing or kayaking
+521,snorkeling
+522,setting table
+523,brushing teeth
+524,mushroom foraging
+525,ice skating
+526,bulldozing
+527,biking through snow
+528,singing
+529,punching person (boxing)
+530,swinging on something
+531,lifting hat
+532,milking cow
+533,swimming backstroke
+534,using remote controller (not gaming)
+535,card stacking
+536,pumping fist
+537,chiseling wood
+538,tasting beer
+539,playing guitar
+540,looking at phone
+541,feeding goats
+542,checking tires
+543,playing trumpet
+544,pumping gas
+545,skiing mono
+546,cumbia
+547,windsurfing
+548,waving hand
+549,assembling computer
+550,eating carrots
+551,sewing
+552,baking cookies
+553,hand washing clothes
+554,making pizza
+555,waxing eyebrows
+556,playing flute
+557,pull ups
+558,bartending
+559,standing on hands
+560,skateboarding
+561,putting on sari
+562,egg hunting
+563,playing saxophone
+564,vacuuming floor
+565,archaeological excavation
+566,breakdancing
+567,throwing discus
+568,playing laser tag
+569,playing badminton
+570,chewing gum
+571,moon walking
+572,skiing crosscountry
+573,playing beer pong
+574,combing hair
+575,yarn spinning
+576,acting in play
+577,hugging baby
+578,cooking sausages (not on barbeque)
+579,training dog
+580,calculating
+581,applying cream
+582,scrambling eggs
+583,salsa dancing
+584,celebrating
+585,folding clothes
+586,playing cello
+587,using bagging machine
+588,marriage proposal
+589,feeding fish
+590,huddling
+591,bowling
+592,frying vegetables
+593,waking up
+594,skipping rope
+595,tobogganing
+596,popping balloons
+597,massaging neck
+598,smashing
+599,contorting

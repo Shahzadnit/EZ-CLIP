@@ -1,0 +1,76 @@
+resume: 
+pretrain: 
+seed: 1024
+weight_save_dir: 'Exp'
+use_motion_loss: True
+training_name: 'Zero_shot_K_400'
+prompt:
+    use: True
+    # num_of_token: 100 #197
+    # num_of_text_token: 50   #77
+    INITIATION: 'random' 
+    DEEP: False
+    DROPOUT: 0.1
+data:
+    dataset: kinetics400
+    modality: RGB
+    num_segments: 8
+    seg_length: 1
+    batch_size:  80
+    workers: 16
+    # num_classes: 400
+    image_tmpl: 'img_{:05d}.jpg'
+    use_llm: True
+    train_list: 'dataset_splits/K-400/Zero_shot/train.txt'
+    val_list: 'dataset_splits/K-400/Zero_shot/val.txt' #
+    gpt_discription: 'GPT_discription/Kinetic_400_gpt_Class_discription_new.csv'
+    label_list: 'lists/kinetics_400_labels.csv'
+    ############ UCF Val detail  #######
+    ucf_val_list: 'dataset_splits/UCF/Zero_shot/test.txt' #
+    ucf_gpt_discription: 'GPT_discription/UCF_101_gpt_Class_discription_new.csv'
+    ucf_label_list: 'lists/ucf_labels.csv'
+    ############## HMDB Val detail ################
+    hmdb_val_list: 'dataset_splits/HMDB/Zero_shot/test.txt' #
+    hmdb_gpt_discription: 'GPT_discription/HMDB_gpt_Class_discription_new.csv'
+    hmdb_label_list: 'lists/hmdb51_labels.csv'
+    ##################K-600####################
+    k600_val_list: 'dataset_splits/K-600/Zero_shot/test_600_exclusive.txt'
+    k600_label_list: 'lists/kinetics_600_labels_exclusive.csv'
+    k600_gpt_discription: 'GPT_discription/kinetics_600_labels_exclusive_discription_new.csv'
+    #############
+    index_bias: 1
+    input_size: 224
+    randaug:
+        N: 0 #2
+        M: 0  #9
+    random_shift: True
+network:
+    arch: ViT-B/16 #ViT-B/32 ViT-B/16  ViT-L/14
+    init: True
+    tsm: False
+    drop_out: 0.1
+    emb_dropout: 0.0 
+    type: clip_k400
+    sim_header: "Transf"  #Transf   meanP  LSTM Conv_1D Transf_cls
+    joint: False
+    describe:
+solver:
+    type: cosine
+    epochs: 150
+    start_epoch: 0
+    epoch_offset: 0
+    optim: adamw
+    lr: 1.e-5 #5.e-6
+    lr_warmup_step: 5
+    momentum: 0.9
+    weight_decay: 0.2
+    lr_decay_step: 15
+    lr_decay_factor: 0.1
+    clip_gradient: 20
+    loss_type: nll
+    evaluate: False
+    ratio: 1
+    f_ratio: 10
+logging:
+    print_freq: 10
+    eval_freq: 1

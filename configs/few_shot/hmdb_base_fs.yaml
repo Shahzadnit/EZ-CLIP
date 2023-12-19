@@ -1,0 +1,71 @@
+resume:   #'/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/Exp/clip_k400/ViT-B/16/kinetics400/base_to_novel_hmdb_test_attention//last_model.pt'
+pretrain: #'/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/vit-b-16-8f-20230917T084406Z-001/vit-b-16-8f/vit-b-16-8f.pt'
+seed: 1024
+use_motion_loss: True
+training_name: 'Few_shot_hmdb'
+prompt:
+    use: False
+    # num_of_token: 100 #197
+    # num_of_text_token: 50   #77
+    INITIATION: 'random' 
+    DEEP: True
+    DROPOUT: 0.1
+data:
+    dataset: kinetics400
+    modality: RGB
+    num_segments: 8
+    seg_length: 1
+    batch_size: 10
+    workers: 16
+    # num_classes: 400
+    image_tmpl: 'img_{:05d}.jpg'
+    use_chat_gpt: True
+    ###################################### K-400 ############################
+    train_list: '/media/sdb_access/Data_for_Action_CLIP/Txts/HMDB_51_txt/my_hmdb_few_shot_2.txt'
+    val_list: '/media/sdb_access/Data_for_Action_CLIP/Txts/HMDB_51_txt/my_hmdb_few_shot_2.txt' #
+    gpt_discription: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/GPT_discription/HMDB_gpt_Class_discription_new.csv'
+    label_list: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/lists/hmdb51_labels.csv'
+    ###################################### Something-Something ############################
+    ############## HMDB Val detail ################
+    novel_val_list: '/media/sdb_access/Data_for_Action_CLIP/Txts/HMDB_51_txt/test.txt' #
+    novel_gpt_discription: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/GPT_discription/HMDB_gpt_Class_discription_new.csv'
+    novel_label_list: '/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_work/ActionCLIP/lists/hmdb51_labels.csv'
+    ############## K60 Val detail ################
+    #############
+    index_bias: 1
+    input_size: 224
+    randaug:
+        N: 0 #2
+        M: 0  #9
+    random_shift: False #True
+network:
+    arch: ViT-B/16  #ViT-B/32 ViT-B/16
+    init: True
+    tsm: False
+    drop_out: 0.1
+    emb_dropout: 0.0 
+    type: clip_k400
+    sim_header: "Transf"  #Transf   meanP  LSTM Conv_1D Transf_cls
+    joint: False
+    describe:
+    Return_Attention: False
+solver:
+    type: cosine
+    epochs: 180
+    start_epoch: 0
+    epoch_offset: 0
+    optim: adamw
+    lr: 1.e-4    #5.e-6
+    lr_warmup_step: 5
+    momentum: 0.9
+    weight_decay: 0.2
+    lr_decay_step: 15
+    lr_decay_factor: 0.1
+    clip_gradient: 20
+    loss_type: nll
+    evaluate: False
+    ratio: 1
+    f_ratio: 10
+logging:
+    print_freq: 10
+    eval_freq: 1
