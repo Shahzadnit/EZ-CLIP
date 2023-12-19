@@ -34,5 +34,17 @@ python train_base_to_novel.py --config configs/base_to_nove/ucf_base_to_novel.ya
 ```
 
 
+## Testing
+```
+# Test Zero shot
+python test_zero_and_few_shot.py --config configs/ucf101/UCF_zero_shot_testing.yaml
+
+```
+```
+# Train base to novel
+ python test_base_to_novel.py --config configs/base_to_nove/ucf_base_to_novel.yaml 
+```
+
+
 # Acknowledgments
 Our code is based on [ActionCLIP](https://github.com/sallymmx/ActionCLIP?tab=readme-ov-file) 
