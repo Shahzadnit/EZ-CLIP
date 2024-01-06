@@ -1,6 +1,8 @@
 # This is an official pytorch implementation of EZ-CLIP: Efficient Zero-Shot Video Action Recognition [[arXiv]](https://arxiv.org/abs/2312.08010)
 
 
+## Updates
+ - Trained model download link of [google driver](https://drive.google.com/drive/folders/1OPt5cXSx-1u_hRXSpst94gMJ5P-c7uBS?usp=sharing).
 
 ## Overview
 
@@ -48,3 +50,4 @@ python test_zero_and_few_shot.py --config configs/ucf101/UCF_zero_shot_testing.y
 
 # Acknowledgments
 Our code is based on [ActionCLIP](https://github.com/sallymmx/ActionCLIP?tab=readme-ov-file) 
+
