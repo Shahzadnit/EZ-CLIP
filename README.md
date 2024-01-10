@@ -29,11 +29,6 @@ We have successfully trained on [Kinetics](https://deepmind.com/research/open-so
 python train.py --config configs/K-400/k400_train.yaml
 
 ```
-```
-# Train base to novel
-python train_base_to_novel.py --config configs/base_to_nove/ucf_base_to_novel.yaml
-```
-
 
 ## Testing
 ```
@@ -41,10 +36,7 @@ python train_base_to_novel.py --config configs/base_to_nove/ucf_base_to_novel.ya
 python test_zero_and_few_shot.py --config configs/ucf101/UCF_zero_shot_testing.yaml
 
 ```
-```
-# Test base to novel
- python test_base_to_novel.py --config configs/base_to_nove/ucf_base_to_novel.yaml 
-```
+
 
 
 # Acknowledgments
