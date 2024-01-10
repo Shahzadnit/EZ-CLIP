@@ -8,7 +8,7 @@ prompt:
     # num_of_token: 100 #197
     # num_of_text_token: 50   #77
     INITIATION: 'random' 
-    DEEP: False
+    DEEP: True
     DROPOUT: 0.1
 data:
     dataset: kinetics600
