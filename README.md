@@ -1,6 +1,7 @@
 # This is an official pytorch implementation of EZ-CLIP: Efficient Zero-Shot Video Action Recognition [[arXiv]](https://arxiv.org/abs/2312.08010)
 
-
+## Updates
+ - Trained model download link of [google driver](https://drive.google.com/drive/folders/1OPt5cXSx-1u_hRXSpst94gMJ5P-c7uBS?usp=sharing).
 
 
 ## Overview
