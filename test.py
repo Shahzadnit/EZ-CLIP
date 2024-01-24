@@ -318,7 +318,7 @@ def main():
 
     best_prec1 = 0.0
     # 'UCF_base' is dataset name 
-    prec1 = validate_1(start_epoch, val_loader, classes, device, model, config, num_text_aug,working_dir,'UCF_base')
+    prec1 = validate(start_epoch, val_loader, classes, device, model, config, num_text_aug,working_dir,'UCF_base')
 
 if __name__ == '__main__':
     main()

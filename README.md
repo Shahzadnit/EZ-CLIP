@@ -26,15 +26,15 @@ We have successfully trained on [Kinetics](https://deepmind.com/research/open-so
 
 ## Training
 ```
-# Train Zero shot
+# Train
 python train.py --config configs/K-400/k400_train.yaml
 
 ```
 
 ## Testing
 ```
-# Test Zero shot
-python test_zero_and_few_shot.py --config configs/ucf101/UCF_zero_shot_testing.yaml
+# Test 
+python test.py --config configs/ucf101/UCF_zero_shot_testing.yaml
 
 ```
 
