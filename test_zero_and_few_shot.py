@@ -182,7 +182,7 @@ def main():
     global args, best_prec1
     global global_step
     parser = argparse.ArgumentParser()
-    parser.add_argument('--config', '-cfg', default='')
+    parser.add_argument('--config', '-cfg', default='/media/sda1_acces/Code/Arxiv_code/EZ-CLIP/configs/ucf101/UCF_zero_shot_testing.yaml')
     parser.add_argument('--traning_name', default='')
     args = parser.parse_args()
     args.traning_name = 'SSv2_base_to_novel_testing'  # give testing name 
