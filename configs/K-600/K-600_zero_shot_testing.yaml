@@ -18,7 +18,8 @@ data:
     split: 1
     batch_size: 2
     workers: 4
-    num_classes: 400
+    # num_classes: 400
+    use_llm: True
     image_tmpl: 'img_{:05d}.jpg'
     val_list: 'dataset_splits/K-600/Zero_shot/test_600_exclusive.txt'
     label_list: 'lists/kinetics_600_labels_exclusive.csv'

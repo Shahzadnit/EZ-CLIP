@@ -19,6 +19,7 @@ data:
     batch_size: 2
     workers: 4
     num_classes: 400
+    use_llm: True
     image_tmpl: 'img_{:05d}.jpg'
     val_list: ''dataset_splits/K-400/Zero_shot/test.txt'
     label_list: 'lists/kinetics_400_labels.csv'
