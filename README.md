@@ -40,6 +40,8 @@ python test.py --config configs/ucf101/UCF_zero_shot_testing.yaml
 
 ## Citation
 If you find the code and pre-trained models useful for your research, please consider citing our paper:
+
+```
 @article{ez2022clip,
   title={EZ-CLIP: Efficient Zeroshot Video Action Recognition},
   author={Shahzad Ahmad, Sukalpa Chanda, Yogesh S Rawat},
