@@ -21,11 +21,12 @@ data:
     num_classes: 400
     image_tmpl: 'img_{:05d}.jpg'
     val_list: 'dataset_splits/UCF/Zero_shot/test.txt'
-    label_list: 'lists/kinetics_400_labels.csv'
-    gpt_discription:  'lists/ucf_labels.csv'
+    label_list: 'lists/ucf_labels.csv'
+    gpt_discription:  'GPT_discription/UCF_101_gpt_Class_discription_new.csv'
     index_bias: 1
     input_size: 224
     random_shift: False
+    use_chat_gpt: True
 network:
     arch: ViT-B/16  #ViT-B/32 ViT-B/16
     init: True
