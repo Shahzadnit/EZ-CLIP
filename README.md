@@ -13,7 +13,7 @@ In this study, we present EZ-CLIP, a simple and efficient adaptation of CLIP tha
 addresses these challenges. EZ-CLIP leverages temporal visual prompting for
 seamless temporal adaptation, requiring no fundamental alterations to the core
 CLIP architecture while preserving its remarkable generalization abilities. Moreover, we introduce a novel learning objective that guides the temporal visual
-prompts to focus on capturing motion, thereby enhancing its learning capabilities from video data
+prompts to focus on capturing motion, thereby enhancing its learning capabilities from video data.
 
 
 ## Content 
