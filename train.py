@@ -338,13 +338,15 @@ def main():
         
         
         print('Saving:')
-        filename = "{}/last_model.pt".format(working_dir)
+        filename1 = "{}/last_model.pt".format(working_dir)
+        filename = "{}/epoch_{}_model.pt".format(working_dir,epoch)
         top_1_acc.append(prec1/100)
         ucf_top_1_acc.append(ucf_prec1/100)
         hmdb_top_1_acc.append(hmdb_prec1/100)
         k600_top_1_acc.append(k600_prec1/100)
         loss.append(np.mean(epoch_loss))
-        epoch_saving(epoch, model, optimizer, filename)
+        epoch_saving(epoch, model,  optimizer, filename)
+        epoch_saving(epoch, model,  optimizer, filename1)
         if is_best:
             print('Saving best weight based on K-400 accuracy at epoch %d'%epoch)
             best_saving(working_dir, epoch, model, optimizer, 'K_400')
