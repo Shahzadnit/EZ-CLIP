@@ -1,42 +1,59 @@
-pretrain: #'/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/prompt_work/trained_weight_16/model_best.pt'
+pretrain: '' 
 seed: 1024
-weight_save_dir: 'Exp'
 use_motion_loss: True
-training_name: 'Zero_shot_UCF_testing'
+training_name: 'Zero_shot'
+weight_save_dir: 'Exp'
 prompt:
     use: True
-    # num_of_token: 100 #197
-    # num_of_text_token: 50   #77
+    # num_of_token: 100
+    # num_of_text_token: 50
     INITIATION: 'random' 
     DEEP: True
     DROPOUT: 0.1
 data:
     dataset: ucf101
     modality: RGB
-    num_segments: 16
+    num_segments: 8
     seg_length: 1
     split: 1
-    batch_size: 2
-    workers: 4
-    num_classes: 400
+    batch_size: 20
+    workers: 8
+    num_classes: 101
     image_tmpl: 'img_{:05d}.jpg'
     val_list: 'dataset_splits/UCF/Zero_shot/test.txt'
     label_list: 'lists/ucf_labels.csv'
     gpt_discription:  'GPT_discription/UCF_101_gpt_Class_discription_new.csv'
     index_bias: 1
     input_size: 224
-    random_shift: False
-    use_chat_gpt: True
+    use_llm: True
+    randaug:
+        N: 0 #2
+        M: 0  #9
 network:
-    arch: ViT-B/16  #ViT-B/32 ViT-B/16
+    arch: ViT-B/16 #ViT-B/32 ViT-B/16  ViT-L/14
     init: True
     tsm: False
-    drop_out: 0.0 # probability of an element to be zeroed
-    emb_dropout: 0.0 # probability of embedding to be zeroed
-    type: clip_ucf
-    sim_header: "Transf"   #Transf   meanP  LSTM  Conv_1D  Transf_cls
+    drop_out: 0.1
+    emb_dropout: 0.0 
+    type: clip_k400
+    sim_header: "Transf"  #Transf   meanP  LSTM Conv_1D Transf_cls
     joint: False
     describe:
+solver:
+    type: cosine
+    epochs: 150
+    start_epoch: 0
+    epoch_offset: 0
+    optim: adamw
+    lr: 1.e-5 #5.e-6
+    lr_warmup_step: 5
+    momentum: 0.9
+    weight_decay: 0.2
+    lr_decay_step: 15
+    lr_decay_factor: 0.1
+    clip_gradient: 20
+    loss_type: nll
+    evaluate: False
     ratio: 1
     f_ratio: 10
 logging:
