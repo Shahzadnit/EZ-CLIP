@@ -1,4 +1,4 @@
-pretrain: #'/media/shahzaa/Extra/Code/ActionCLIP_without_wandb/prompt_work/trained_weight_16/model_best.pt'
+pretrain: ''
 seed: 1024
 weight_save_dir: 'Exp'
 use_motion_loss: True
@@ -8,36 +8,35 @@ prompt:
     # num_of_token: 100 #197
     # num_of_text_token: 50   #77
     INITIATION: 'random' 
-    DEEP: False
+    DEEP: True
     DROPOUT: 0.1
 data:
     dataset: hmdb
     modality: RGB
-    num_segments: 16
+    num_segments: 8
     seg_length: 1
     split: 1
-    batch_size: 2
+    batch_size: 1
     workers: 4
-    num_classes: 400
+    # num_classes: 400
+    use_llm: True
     image_tmpl: 'img_{:05d}.jpg'
-    val_list: 'dataset_splits/HMDB/Zero_shot/test.txt'
-    label_list: 'lists/kinetics_400_labels.csv'
-    gpt_discription: 'lists/hmdb51_labels.csv'
+    val_list: '/cluster/datastore/shahzaa/Txts/HMDB_51_txt/test.txt' #
+    gpt_discription: '/cluster/datastore/shahzaa/Code/prompt_work/ActionCLIP/GPT_discription/HMDB_gpt_Class_discription_new.csv'
+    label_list: '/cluster/datastore/shahzaa/Code/prompt_work/ActionCLIP/lists/hmdb51_labels.csv'
     index_bias: 1
     input_size: 224
     random_shift: False
 network:
-    arch: ViT-B/16  #ViT-B/32 ViT-B/16
+    arch: ViT-B/16 #ViT-B/32 ViT-B/16  ViT-L/14
     init: True
     tsm: False
-    drop_out: 0.0 # probability of an element to be zeroed
-    emb_dropout: 0.0 # probability of embedding to be zeroed
-    type: clip_hmdb
-    sim_header: "Transf"   #Transf   meanP  LSTM  Conv_1D  Transf_cls
+    drop_out: 0.1
+    emb_dropout: 0.0 
+    type: clip_k400
+    sim_header: "Transf"  #Transf   meanP  LSTM Conv_1D Transf_cls
     joint: False
     describe:
-    ratio: 1
-    f_ratio: 10
 logging:
     print_freq: 10
     eval_freq: 1
