@@ -1,4 +1,5 @@
 import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 import torch.nn as nn
 from datasets import Action_DATASETS
 from torch.utils.data import DataLoader
@@ -130,11 +131,11 @@ def main():
     model_text = torch.nn.DataParallel(model_text).cuda()
     model_image = torch.nn.DataParallel(model_image).cuda()
     ############################## K-400 dataset  loader ###################################
-    train_data = Action_DATASETS(config.data.ucf_train_list,config.data.ucf_label_list,num_segments=config.data.num_segments,image_tmpl=config.data.image_tmpl,random_shift=config.data.random_shift,
+    train_data = Action_DATASETS(config.data.train_list,config.data.label_list,num_segments=config.data.num_segments,image_tmpl=config.data.image_tmpl,random_shift=config.data.random_shift,
                        transform=transform_train)
     train_loader = DataLoader(train_data,batch_size=config.data.batch_size,num_workers=config.data.workers,shuffle=True,pin_memory=False,drop_last=True)
     
-    val_data = Action_DATASETS(config.data.ucf_val_list,config.data.ucf_label_list, random_shift=False,num_segments=config.data.num_segments,image_tmpl=config.data.image_tmpl,
+    val_data = Action_DATASETS(config.data.val_list,config.data.label_list, random_shift=False,num_segments=config.data.num_segments,image_tmpl=config.data.image_tmpl,
                        transform=transform_val)
     val_loader = DataLoader(val_data,batch_size=config.data.batch_size,num_workers=config.data.workers,shuffle=False,pin_memory=False,drop_last=True)
 
@@ -191,7 +192,7 @@ def main():
         else:
             print(("=> no checkpoint found at '{}'".format(config.pretrain)))
 
-    classes, num_text_aug, text_dict = text_prompt(train_data,config.data.ucf_gpt_discription, config.data.use_llm)
+    classes, num_text_aug, text_dict = text_prompt(train_data,config.data.gpt_discription, config.data.use_llm)
     ##### UCF ########
     ucf_classes, ucf_num_text_aug, ucf_text_dict = text_prompt(ucf_val_data,config.data.ucf_gpt_discription,config.data.use_llm)
     ##### hmdb########
