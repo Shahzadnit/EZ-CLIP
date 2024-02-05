@@ -345,11 +345,13 @@ def main():
                 f.close()
         
         print('Saving:')
-        filename = "{}/last_model.pt".format(working_dir,epoch)
+        filename1 = "{}/last_model.pt".format(working_dir)
+        filename = "{}/epoch_{}_model.pt".format(working_dir,epoch)
         top_1_acc.append(prec1/100)
         novel_top_1_acc.append(novel_prec1/100)
         loss.append(np.mean(epoch_loss))
-        epoch_saving(epoch, model, optimizer, filename)
+        epoch_saving(epoch, model,  optimizer, filename)
+        epoch_saving(epoch, model,  optimizer, filename1)
         if is_best:
             print('Saving best weight based on Base accuracy at epoch %d'%epoch)
             best_saving(working_dir, epoch, model, optimizer, 'base')
