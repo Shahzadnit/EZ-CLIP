@@ -3,6 +3,7 @@ pretrain:  #'/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_
 seed: 1024
 use_motion_loss: True
 training_name: 'Few_shot_ucf_k_8_vit_14_3'
+T_Adapter: False
 prompt:
     use: True
     # num_of_token: 100 #197

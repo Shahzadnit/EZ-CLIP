@@ -3,6 +3,7 @@ seed: 1024
 weight_save_dir: 'Exp'
 use_motion_loss: True
 training_name: 'Zero_shot_hmdb_testing'
+T_Adapter: False
 prompt:
     use: True
     # num_of_token: 100 #197

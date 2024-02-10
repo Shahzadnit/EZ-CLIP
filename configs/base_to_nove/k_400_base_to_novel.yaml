@@ -4,6 +4,7 @@ weight_save_dir: 'Exp'
 seed: 1024
 use_motion_loss: True
 training_name: 'base_to_novel_k400'
+T_Adapter: False
 prompt:
     use: True
     # num_of_token: 100 #197

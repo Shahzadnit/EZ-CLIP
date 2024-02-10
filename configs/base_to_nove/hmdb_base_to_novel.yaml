@@ -4,6 +4,7 @@ weight_save_dir: 'Exp'
 seed: 1024
 training_name: 'base_to_novel_hmdb'
 use_motion_loss: True
+T_Adapter: False
 prompt:
     use: True
     # num_of_token: 100 #197

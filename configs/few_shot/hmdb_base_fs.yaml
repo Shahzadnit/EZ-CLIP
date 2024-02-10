@@ -3,6 +3,7 @@ pretrain: #'/media/sda1_acces/Code/ActionCLIP_without_wandb/Prompt_Adaptor_mix_w
 seed: 1024
 use_motion_loss: True
 training_name: 'Few_shot_hmdb'
+T_Adapter: False
 prompt:
     use: False
     # num_of_token: 100 #197

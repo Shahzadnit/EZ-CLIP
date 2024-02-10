@@ -3,6 +3,7 @@ seed: 1024
 use_motion_loss: True
 training_name: 'Zero_shot'
 weight_save_dir: 'Exp'
+T_Adapter: False
 prompt:
     use: True
     # num_of_token: 100
