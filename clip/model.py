@@ -127,7 +127,7 @@ class ResidualAttentionBlock(nn.Module):
         self.attn = nn.MultiheadAttention(d_model, n_head,dropout=dropout)
         # self.prompt_attn = nn.MultiheadAttention(d_model, n_head,dropout=dropout)
         self.ln_1 = LayerNorm(d_model)
-        if self.model_for == 'image' and not self.config.prompt.use:
+        if self.model_for == 'image' and not self.config.prompt.use and self.config.T_Adapter:
             self.T_Adapter = Adapter(d_model, skip_connect=False)
         self.Adapter = Adapter(d_model)
         self.drop_path = DropPath(dropout) if dropout > 0. else nn.Identity()
@@ -181,13 +181,11 @@ class ResidualAttentionBlock(nn.Module):
             if return_attention: # ADDED
                 return self.attention_weight(self.ln_1(x)) # ADDED
             ###################################
-            if T_prompt is None and not self.config.prompt.use:
+            if T_prompt is None and not self.config.prompt.use and self.config.T_Adapter:
                 xt = x.view(l, b, self.T, d).permute(2,0,1,3).reshape(self.T,l*b,d)
                 xt = self.T_Adapter(self.attention(self.ln_1(xt)))
                 xt = xt.view(self.T,l,b,d).permute(1,0,2,3).reshape(l, self.T*b,d)
                 x = x + self.drop_path(xt)
-
-
             ######################################
             x = x + self.drop_path(self.attention(self.ln_1(x)))
             x = x[:l,:,:]
