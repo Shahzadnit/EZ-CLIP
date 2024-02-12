@@ -21,7 +21,7 @@ data:
     workers: 16
     # num_classes: 400
     image_tmpl: 'img_{:05d}.jpg'
-    use_chat_gpt: True
+    use_llm: True
     ###################################### K-400 ############################
     # train_list: '/media/sdb_access/Data_for_Action_CLIP/Txts/kinetic_400_txt/train_400_mini.txt'
     train_list: '/media/sdb_access/Data_for_Action_CLIP/Txts/UCF_101_txt/my_ucf_few_shot_8.txt'

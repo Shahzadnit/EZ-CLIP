@@ -20,7 +20,7 @@ data:
     workers: 16
     # num_classes: 400
     image_tmpl: 'img_{:05d}.jpg'
-    use_chat_gpt: True
+    use_llm: True
     ###################################### K-400 ############################
     train_list: '/media/sdb_access/Data_for_Action_CLIP/Txts/HMDB_51_txt/my_hmdb_few_shot_2.txt'
     val_list: '/media/sdb_access/Data_for_Action_CLIP/Txts/HMDB_51_txt/my_hmdb_few_shot_2.txt' #

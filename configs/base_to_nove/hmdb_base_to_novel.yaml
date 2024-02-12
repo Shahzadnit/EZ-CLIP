@@ -21,7 +21,7 @@ data:
     workers: 16
     # num_classes: 400
     image_tmpl: 'img_{:05d}.jpg'
-    use_chat_gpt: True
+    use_llm: True
     ###################################### K-400 ############################
     train_list: 'dataset_splits/HMDB/base_to_novel/hmdb_base_train.txt'
     val_list: 'dataset_splits/HMDB/base_to_novel/hmdb_base_val.txt' #
