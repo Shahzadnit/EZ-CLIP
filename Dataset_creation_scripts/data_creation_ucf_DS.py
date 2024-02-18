@@ -42,7 +42,7 @@ def dump_frames(vid_path):
             # access_path = '{}/{:06d}.jpg'.format(vid_name, i)
             access_path = '{}/img_{:05d}.jpg'.format(vid_name, i)
             file_list.append(access_path)
-    print('{} done'.format(vid_name))
+    # print('{} done'.format(vid_name))
     test_video_path.append(out_full_path+' '+str(len(file_list))+' '+str(label_index)+'\n')
     return file_list
 
@@ -90,14 +90,13 @@ if __name__ == '__main__':
     #################################################
     print("total number of videos found: ", len(vid_list))
 
-    pool = Pool(num_worker)
-    pool.map(dump_frames, vid_list)
+    # pool = Pool(num_worker)
+    # pool.map(dump_frames, vid_list)
 
-    # for video_path in tqdm(vid_list):
-    #     file_list = dump_frames(video_path)
+    for video_path in tqdm(vid_list):
+        file_list = dump_frames(video_path)
 
     print(len(test_video_path))
-    # print(len(test_video_path))
     
 
     # writing to file
