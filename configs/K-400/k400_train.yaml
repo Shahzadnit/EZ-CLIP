@@ -1,9 +1,9 @@
-resume: 
+resume: #'/cluster/datastore/shahzaa/EZ-CLIP/Exp/clip_k400/ViT-L/14/kinetics400/base_to_novel_k400_ViT-14_s3/Best_epoch_6_model.pt'
 pretrain: 
 seed: 1024
-weight_save_dir: 'Exp'
+weight_save_dir: 'Exp_T_Adapter'
 use_motion_loss: True
-training_name: 'Zero_shot_K_400'
+training_name: 'Zero_shot_K_400_vit_16_T_adaptor_8_frame'
 T_Adapter: False
 prompt:
     use: True
@@ -22,22 +22,26 @@ data:
     # num_classes: 400
     image_tmpl: 'img_{:05d}.jpg'
     use_llm: True
-    train_list: 'dataset_splits/K-400/Zero_shot/train.txt'
-    val_list: 'dataset_splits/K-400/Zero_shot/val.txt' #
-    gpt_discription: 'GPT_discription/Kinetic_400_gpt_Class_discription_new.csv'
-    label_list: 'lists/kinetics_400_labels.csv'
+    train_list: '/media/datastore/shahzad/Code/ActionCLIP/kinetic_400_txt/train.txt'
+    val_list: '/media/datastore/shahzad/Code/ActionCLIP/kinetic_400_txt/val.txt' #
+    gpt_discription: '/cluster/datastore/shahzaa/Code/prompt_work/ActionCLIP/GPT_discription/Kinetic_400_gpt_Class_discription_new.csv'
+    label_list: '/cluster/datastore/shahzaa/Code/prompt_work/ActionCLIP/lists/kinetics_400_labels.csv'
     ############ UCF Val detail  #######
-    ucf_val_list: 'dataset_splits/UCF/Zero_shot/test.txt' #
-    ucf_gpt_discription: 'GPT_discription/UCF_101_gpt_Class_discription_new.csv'
-    ucf_label_list: 'lists/ucf_labels.csv'
+    ucf_val_list: '/cluster/datastore/shahzaa/Txts/UCF_101_txt/test.txt' #
+    ucf_gpt_discription: '/cluster/datastore/shahzaa/Code/prompt_work/ActionCLIP/GPT_discription/UCF_101_gpt_Class_discription_new.csv'
+    ucf_label_list: '/cluster/datastore/shahzaa/Code/prompt_work/ActionCLIP/lists/ucf_labels.csv'
+    ############ UCF-DS Val detail  #######
+    ucfds_val_list: '/cluster/datastore/shahzaa/EZ-CLIP/dataset_splits/UCF/Zero_shot/test_DS.txt' #
+    ucfds_gpt_discription: '/cluster/datastore/shahzaa/Code/prompt_work/ActionCLIP/GPT_discription/UCF_101_gpt_Class_discription_new.csv'
+    ucfds_label_list: '/cluster/datastore/shahzaa/Code/prompt_work/ActionCLIP/lists/ucf_labels.csv'
     ############## HMDB Val detail ################
-    hmdb_val_list: 'dataset_splits/HMDB/Zero_shot/test.txt' #
-    hmdb_gpt_discription: 'GPT_discription/HMDB_gpt_Class_discription_new.csv'
-    hmdb_label_list: 'lists/hmdb51_labels.csv'
+    hmdb_val_list: '/cluster/datastore/shahzaa/Txts/HMDB_51_txt/test.txt' #
+    hmdb_gpt_discription: '/cluster/datastore/shahzaa/Code/prompt_work/ActionCLIP/GPT_discription/HMDB_gpt_Class_discription_new.csv'
+    hmdb_label_list: '/cluster/datastore/shahzaa/Code/prompt_work/ActionCLIP/lists/hmdb51_labels.csv'
     ##################K-600####################
-    k600_val_list: 'dataset_splits/K-600/Zero_shot/test_600_exclusive.txt'
-    k600_label_list: 'lists/kinetics_600_labels_exclusive.csv'
-    k600_gpt_discription: 'GPT_discription/kinetics_600_labels_exclusive_discription_new.csv'
+    k600_val_list: '/cluster/datastore/shahzaa/Txts/test_600.txt'
+    k600_label_list: '/cluster/datastore/shahzaa/Code/Prompt_Adaptor_mix_work/ActionCLIP/lists/kinetics_600_labels.csv'
+    k600_gpt_discription: '/cluster/datastore/shahzaa/Code/Prompt_Adaptor_mix_work/ActionCLIP/GPT_discription/K_600_gpt_Class_discription_new.csv'
     #############
     index_bias: 1
     input_size: 224
@@ -61,7 +65,7 @@ solver:
     start_epoch: 0
     epoch_offset: 0
     optim: adamw
-    lr: 1.e-5 #5.e-6
+    lr: 1.e-4 #5.e-6
     lr_warmup_step: 5
     momentum: 0.9
     weight_decay: 0.2
