@@ -1,5 +1,5 @@
 import os
-os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+# os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 import torch.nn as nn
 from datasets import Action_DATASETS
 from torch.utils.data import DataLoader
@@ -144,6 +144,12 @@ def main():
                        transform=transform_val)
     ucf_val_loader = DataLoader(ucf_val_data,batch_size=config.data.batch_size,num_workers=config.data.workers,shuffle=False,pin_memory=False,drop_last=True)
     ###################################################################################################################################################
+
+    ############################## UCF-DS-101 test loader ###################################
+    ucfds_val_data = Action_DATASETS(config.data.ucfds_val_list,config.data.ucfds_label_list, random_shift=False,num_segments=config.data.num_segments,image_tmpl=config.data.image_tmpl,
+                       transform=transform_val)
+    ucfds_val_loader = DataLoader(ucfds_val_data,batch_size=config.data.batch_size,num_workers=config.data.workers,shuffle=False,pin_memory=False,drop_last=True)
+    ###################################################################################################################################################
     
     ############################## HMDB51 test loader ###################################
     hmdb_val_data = Action_DATASETS(config.data.hmdb_val_list,config.data.hmdb_label_list, random_shift=False,num_segments=config.data.num_segments,image_tmpl=config.data.image_tmpl,
@@ -195,6 +201,8 @@ def main():
     classes, num_text_aug, text_dict = text_prompt(train_data,config.data.gpt_discription, config.data.use_llm)
     ##### UCF ########
     ucf_classes, ucf_num_text_aug, ucf_text_dict = text_prompt(ucf_val_data,config.data.ucf_gpt_discription,config.data.use_llm)
+    ##### UCF-DS ########
+    ucfds_classes, ucfds_num_text_aug, ucfds_text_dict = text_prompt(ucfds_val_data,config.data.ucfds_gpt_discription,config.data.use_llm)
     ##### hmdb########
     hmdb_classes, hmdb_num_text_aug, hmdb_text_dict = text_prompt(hmdb_val_data,config.data.hmdb_gpt_discription, config.data.use_llm)
     #### k600 #######
@@ -207,11 +215,13 @@ def main():
     loss=[]
     top_1_acc=[]
     ucf_top_1_acc=[]
+    ucfds_top_1_acc=[]
     hmdb_top_1_acc=[]
     k600_top_1_acc=[]
     
     best_prec1 = 0.0
     ucf_best_prec1 = 0.0
+    ucfds_best_prec1 = 0.0
     hmdb_best_prec1 = 0.0
     k600_best_prec1 = 0.0
     
@@ -276,7 +286,7 @@ def main():
                 optimizer.step()
                 clip.model.convert_weights(model)
             
-            if kkk%10==0:
+            if kkk%100==0:
                 if config.use_motion_loss:
                     print('Epoch:%d  iteration:%d/%d, total loss:%f, image loss:%f, text loss:%f, motion loss:%f, lr:%f '%(epoch,kkk,len(train_loader),total_loss.item(),loss_imgs.item(),loss_texts.item(), loss_video_motion.item(), optimizer.param_groups[0]['lr']))
                 else:
@@ -285,6 +295,8 @@ def main():
         if epoch % config.logging.eval_freq == 0:  # and epoch>0
             print('UCF accuracy')
             ucf_prec1 = validate(epoch,ucf_val_loader, ucf_classes, device, model, config,ucf_num_text_aug,working_dir,'UCF')
+            print('UCF-DS accuracy')
+            ucfds_prec1 = validate(epoch,ucfds_val_loader, ucfds_classes, device, model, config,ucfds_num_text_aug,working_dir,'UCF-DS')
             print('HMDB accuracy')
             hmdb_prec1 = validate(epoch,hmdb_val_loader, hmdb_classes, device, model, config,hmdb_num_text_aug,working_dir,'HMDB')
             print('K600 accuracy')
@@ -298,6 +310,10 @@ def main():
         ucf_is_best = ucf_prec1 > ucf_best_prec1
         ucf_best_prec1 = max(ucf_prec1, ucf_best_prec1)
         print('UCF Testing: {}/{}'.format(ucf_prec1,ucf_best_prec1))
+
+        ucfds_is_best = ucfds_prec1 > ucfds_best_prec1
+        ucfds_best_prec1 = max(ucfds_prec1, ucfds_best_prec1)
+        print('UCF-DS Testing: {}/{}'.format(ucfds_prec1,ucfds_best_prec1))
         
         hmdb_is_best = hmdb_prec1 > hmdb_best_prec1
         hmdb_best_prec1 = max(hmdb_prec1, hmdb_best_prec1)
@@ -319,6 +335,7 @@ def main():
                     f.write('Epoch:%d  iteration:%d/%d, total loss:%f, image loss:%f, text loss:%f, lr:%f \n'%(epoch,kkk,len(train_loader),total_loss.item(),loss_imgs.item(),loss_texts.item(), optimizer.param_groups[0]['lr']))
                 f.write('K-400 Testing: {}/{}\n'.format(prec1,best_prec1))
                 f.write('UCF Testing: {}/{}\n'.format(ucf_prec1,ucf_best_prec1))
+                f.write('UCF-DS Testing: {}/{}\n'.format(ucfds_prec1,ucfds_best_prec1))
                 f.write('HMDB Testing: {}/{}\n'.format(hmdb_prec1,hmdb_best_prec1))
                 f.write('k600 Testing: {}/{}\n'.format(k600_prec1,k600_best_prec1))
                 f.close()
@@ -330,8 +347,7 @@ def main():
                     f.write('Epoch:%d  iteration:%d/%d, total loss:%f, image loss:%f, text loss:%f, lr:%f \n'%(epoch,kkk,len(train_loader),total_loss.item(),loss_imgs.item(),loss_texts.item(), optimizer.param_groups[0]['lr']))
                 f.write('K-400 Testing: {}/{}\n'.format(prec1,best_prec1))
                 f.write('UCF Testing: {}/{}\n'.format(ucf_prec1,ucf_best_prec1))
-                f.write('HMDB Testing: {}/{}\n'.format(hmdb_prec1,hmdb_best_prec1))
-                f.write('HMDB Testing: {}/{}\n'.format(hmdb_prec1,hmdb_best_prec1))
+                f.write('UCF-DS Testing: {}/{}\n'.format(ucfds_prec1,ucfds_best_prec1))
                 f.write('HMDB Testing: {}/{}\n'.format(hmdb_prec1,hmdb_best_prec1))
                 f.write('k600 Testing: {}/{}\n'.format(k600_prec1,k600_best_prec1))
                 f.close()
@@ -342,6 +358,7 @@ def main():
         filename = "{}/epoch_{}_model.pt".format(working_dir,epoch)
         top_1_acc.append(prec1/100)
         ucf_top_1_acc.append(ucf_prec1/100)
+        ucfds_top_1_acc.append(ucfds_prec1/100)
         hmdb_top_1_acc.append(hmdb_prec1/100)
         k600_top_1_acc.append(k600_prec1/100)
         loss.append(np.mean(epoch_loss))
@@ -353,6 +370,9 @@ def main():
         if ucf_is_best:
             print('Saving best weight based on UCF accuracy at epoch %d'%epoch)
             best_saving(working_dir, epoch, model, optimizer, 'UCF_101')
+        if ucfds_is_best:
+            print('Saving best weight based on UCFDS accuracy at epoch %d'%epoch)
+            best_saving(working_dir, epoch, model, optimizer, 'UCFDS_101')
         if hmdb_is_best:
             print('Saving best weight based on HMDB accuracy at epoch %d'%epoch)
             best_saving(working_dir, epoch, model, optimizer, 'HMDB_51')
@@ -367,6 +387,7 @@ def main():
         plt.plot(X, loss, color='r', label='Training loss')
         plt.plot(X, top_1_acc, color='g', label='K-400 Accuracy')
         plt.plot(X, ucf_top_1_acc, color='b', label='UCF-101 Accuracy')
+        plt.plot(X, ucfds_top_1_acc, color='b', label='UCF-DS-101 Accuracy')
         plt.plot(X, hmdb_top_1_acc, color='m', label='HMDB-51 Accuracy')
         plt.plot(X, k600_top_1_acc, color='m', label='K-600 Accuracy')
         plt.xlabel("Epoch")
