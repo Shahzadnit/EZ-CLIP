@@ -47,10 +47,10 @@ All models are trained on base classes and evaluated on both base and novel clas
 
 | Dataset                                                | Input  | Base Acc. | Novel Acc. |  HM  |                                                                                                                                                                                                                   Model                                                                                                                                                                                                                   |
 |----------------------------------------------------------------|:------:|:---------:|:----------:|:----:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| K-400 | 8x224 |  73.1 | 60.6 | 66.3| [Link](https://drive.google.com/drive/folders/1ucdGl8AJXdEQRO9w56N-vB24ct29nqIj?usp=drive_link) |
-| HMDB-51 | 8x224 | 77.0 | 58.2  |66.3 | [Link](https://drive.google.com/drive/folders/1ucdGl8AJXdEQRO9w56N-vB24ct29nqIj?usp=drive_link) |
-| UCF-101 | 8x224 |    94.4 | 77.9 | 85.4 | [Link](https://drive.google.com/drive/folders/1ucdGl8AJXdEQRO9w56N-vB24ct29nqIj?usp=drive_link) |
-| SSV2 | 8x224 |     16.6 | 13.3 | 14.8 | [Link](https://drive.google.com/drive/folders/1ucdGl8AJXdEQRO9w56N-vB24ct29nqIj?usp=drive_link) |
+| K-400 | 8x224 |  73.1 | 60.6 | 66.3| [Link](https://drive.google.com/file/d/1q8rBkL0QKNTeJJihWkNUwm1eAGH_OY0U/view?usp=sharing) |
+| HMDB-51 | 8x224 | 77.0 | 58.2  |66.3 | [Link](https://drive.google.com/file/d/1hW2i6agAhpyFvoRgPcOki3coQHx-6oWN/view?usp=sharing) |
+| UCF-101 | 8x224 |    94.4 | 77.9 | 85.4 | [Link](https://drive.google.com/file/d/16HTxwbqfi1N8BPVjfrvL6F_A4xLNt-zc/view?usp=sharing) |
+| SSV2 | 8x224 |     16.6 | 13.3 | 14.8 | [Link](https://drive.google.com/file/d/1EtpET-s634JnHK7n57vrvqNpE7qH_dHq/view?usp=sharing) |
 
 ## Data Preparation
 We need to first extract videos into frames for fast reading. Please refer 'Dataset_creation_scripts' data pre-processing.
