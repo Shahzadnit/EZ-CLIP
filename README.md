@@ -43,6 +43,19 @@ All models are trained on Kinetics-400 and then evaluated directly on downstream
 We need to first extract videos into frames for fast reading. Please refer 'Dataset_creation_scripts' data pre-processing.
 We have successfully trained on [Kinetics](https://deepmind.com/research/open-source/open-source-datasets/kinetics/), [UCF101](http://crcv.ucf.edu/data/UCF101.php), [HMDB51](http://serre-lab.clps.brown.edu/resource/hmdb-a-large-human-motion-database/),
 
+
+### Base-to-novel generalization results
+Here, we divide each dataset into base and novel classes.
+All models are trained on base classes and evaluated on both base and novel classes.
+
+| Dataset                                                | Input  | Base Acc. | Novel Acc. |  HM  |                                                                                                                                                                                                                   Model                                                                                                                                                                                                                   |
+|----------------------------------------------------------------|:------:|:---------:|:----------:|:----:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| [K-400] | 8x224 |   -    |   -    | - | [Link] |
+| [HMDB-51] | 8x224 |     -    |   -    | - | [Link] |
+| [UCF-101] | 8x224 |     -    |   -    | - | [Link] |
+| [SSV2] | 8x224 |     -    |   -    | - | [Link] |
+
+
 ## Training
 ```
 # Train
