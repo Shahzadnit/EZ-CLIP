@@ -39,10 +39,6 @@ All models are trained on Kinetics-400 and then evaluated directly on downstream
 |---------------------------------------------------------------------------|:------:|:-------:|:-------:|:------------:|:--------------------------------------------------------------------------------------------------------------------------------------------:|
 | EZ-CLIP(ViT-16) | 8x224 |  52.9   |  79.1   |     70.1     |  [link](https://drive.google.com/file/d/19QNGgaZjPyq0yz7XJGFccS7MV09KMY_K/view?usp=drive_link)  |
 
-## Data Preparation
-We need to first extract videos into frames for fast reading. Please refer 'Dataset_creation_scripts' data pre-processing.
-We have successfully trained on [Kinetics](https://deepmind.com/research/open-source/open-source-datasets/kinetics/), [UCF101](http://crcv.ucf.edu/data/UCF101.php), [HMDB51](http://serre-lab.clps.brown.edu/resource/hmdb-a-large-human-motion-database/),
-
 
 ### Base-to-novel generalization results
 Here, we divide each dataset into base and novel classes.
@@ -54,6 +50,13 @@ All models are trained on base classes and evaluated on both base and novel clas
 | HMDB-51 | 8x224 | 77.0 | 58.2  |66.3 | [Link] |
 | UCF-101 | 8x224 |    94.4 | 77.9 | 85.4 | [Link] |
 | SSV2 | 8x224 |     16.6 | 13.3 | 14.8 | [Link] |
+
+## Data Preparation
+We need to first extract videos into frames for fast reading. Please refer 'Dataset_creation_scripts' data pre-processing.
+We have successfully trained on [Kinetics](https://deepmind.com/research/open-source/open-source-datasets/kinetics/), [UCF101](http://crcv.ucf.edu/data/UCF101.php), [HMDB51](http://serre-lab.clps.brown.edu/resource/hmdb-a-large-human-motion-database/),
+
+
+
 
 
 ## Training
