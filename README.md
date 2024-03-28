@@ -30,7 +30,7 @@ We provide the conda requirements.txt to help you install these libraries. You c
 
 
 
-# Model Zoo
+## Model Zoo
 NOTE: All models in our experiments below uses publicly available ViT/B-16 based CLIP model.
 
 ### Zero-shot results
