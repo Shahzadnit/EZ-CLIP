@@ -18,6 +18,7 @@ prompts to focus on capturing motion, thereby enhancing its learning capabilitie
 
 ## Content 
 - [Prerequisites](#prerequisites)
+- [Model Zoo](#ModelZoo)
 - [Data Preparation](#data-preparation)
 - [Training](#training)
 - [Testing](#testing)
