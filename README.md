@@ -27,6 +27,18 @@ prompts to focus on capturing motion, thereby enhancing its learning capabilitie
 
 We provide the conda requirements.txt to help you install these libraries. You can initialize environment by using `pip install -r requirements.txt`.
 
+
+
+# Model Zoo
+NOTE: All models in our experiments below uses publicly available ViT/B-16 based CLIP model.
+
+### Zero-shot results
+All models are trained on Kinetics-400 and then evaluated directly on downstream datasets.
+
+| Name  (configs)                                                           | Input  | HMDB-51 | UCF-101 | Kinetics-600 |                                                                    Model                                                                     |
+|---------------------------------------------------------------------------|:------:|:-------:|:-------:|:------------:|:--------------------------------------------------------------------------------------------------------------------------------------------:|
+| EZ-CLIP(ViT-16) | 8x224 |  52.9   |  79.1   |     70.1     |  [link](https://drive.google.com/file/d/19QNGgaZjPyq0yz7XJGFccS7MV09KMY_K/view?usp=drive_link)  |
+
 ## Data Preparation
 We need to first extract videos into frames for fast reading. Please refer 'Dataset_creation_scripts' data pre-processing.
 We have successfully trained on [Kinetics](https://deepmind.com/research/open-source/open-source-datasets/kinetics/), [UCF101](http://crcv.ucf.edu/data/UCF101.php), [HMDB51](http://serre-lab.clps.brown.edu/resource/hmdb-a-large-human-motion-database/),
