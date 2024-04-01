@@ -6,7 +6,10 @@
 
 ## Overview
 
-![EZ-CLIP](EZ-CLIP.png)
+<!-- ![EZ-CLIP](EZ-CLIP.png) -->
+![EZ-CLIP](Hole_idea_1.svg)
+
+
 
 # Introduction
 In this study, we present EZ-CLIP, a simple and efficient adaptation of CLIP that
