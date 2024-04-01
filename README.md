@@ -6,7 +6,7 @@
 
 ## Overview
 
-![EZ-CLIP](Hole_idea_1.svg)
+![EZ-CLIP](EZ-CLIP.png)
 
 
 
