@@ -21,7 +21,7 @@ This EZ-CLIP repository remains available for reference but may not receive furt
 
 ## Overview
 
-![EZ-CLIP Architecture](EZ-CLIP.png)
+![EZ-CLIP Architecture](T2L.jpg)
 
 **EZ-CLIP** is an innovative adaptation of CLIP tailored for **zero-shot video action recognition**. By leveraging **temporal visual prompting**, it seamlessly integrates temporal dynamics while preserving CLIP’s powerful generalization. A novel motion-focused learning objective enhances its ability to capture video motion, all without altering CLIP’s core architecture.
 
